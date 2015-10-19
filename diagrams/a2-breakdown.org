@@ -1,0 +1,48 @@
+A local pizza store wants you to develop a Java-based pizza ordering system.
+
+The system needs to let 
+    cashiers serve customers in the store and also 
+    take phoned in orders. 
+    Customers can place orders through kiosks. 
+    Customers can order anything on the menu (e.g., pizza, breadsticks, soft drinks, etc). While ordering, they 
+    can change their mind. Customers must be able to 
+    view the menu for kiosk orders. The application must 
+    handle payments.
+
+Store managers must be able to 
+    define a menu, 
+    modify the menu, and 
+    set the special for the day. 
+    Each of these three involve naming the items and their prices. 
+
+Chefs must be able to 
+    view orders and 
+    mark them as complete when the orders are completed. 
+
+?? For this part of the project, let us ignore delivery folks, who would mark the orders as delivered. ??
+    - a3 based on a2 and a2 did not have delivery
+
+* basic
+    - java
+    - gui
+    - database optional
+    - model view seperation
+* application
+    - handle payments
+* customers
+    - place orders through kiosks (any item)
+    - change order before submitting
+    - view order before submitting
+* cashiers
+    - serve customers
+    - take phoned in orders
+* managers
+    - define a menu
+    - modify a menu
+    - set the special for the day
+    - ABOVE: name items and their prices
+* chefs
+    - view orders
+    - mark orders as complete
+* delivery folks
+    - mark order as delivered
