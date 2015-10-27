@@ -14,5 +14,4 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	git add --all .
 	git commit -m "$*"
-	git push
 fi
