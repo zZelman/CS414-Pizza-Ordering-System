@@ -1,0 +1,47 @@
+* assignment key phrases
+    * use GitHub for everything
+    * 3 system sequence diagrams
+    * class diagram
+    * write a system test plan
+    * write junit test cases
+    * implement system from a3
+    * use GRASP patterns from class
+    * use swing for the user interface
+    * test the system
+    * document describing how to run the system
+
+* Wikipedia GRASP patterns
+    * controller
+        non-ui object responsible for receiving or handling a system event 
+        the first object beyond the ui layer that receives and coordinates ("controls") a system operation
+    * creator
+        creation of objects of particular classes
+        rules (>= 1 pref) (B should be responsible for creating A if)
+            B contains/aggregates A
+            B records A
+            B closely uses A
+            B has initializing information for A
+    * indirection
+        supports low coupling
+        responsibility of mediation between A and B are assigned to C (A <--> C <--> B)
+    * information expert
+        how to assign responsibilities to objects? ---> assign to the class that has the information needed to fulfill the job
+    * high cohesion
+        supports low coupling
+        jobs within a thing are strongly related and focused
+        jobs of the same category exist next to each other
+    * low coupling
+        a measure of how strongly one element is connected to, has knowledge of, or relies on other elements
+        goals
+            lower dependency between classes
+            change in one class having lower impact on other classes
+            higher reuse potential
+    * polymorphism
+        OOP
+        variation on the general happens in the specific lower down
+    * protected variations
+        an interface into an implementation
+            you don't how the implementation is done, you just know what it should do
+                protects the element who uses the interface from the instability of the implementation
+    * pure fabrication
+        a set of related software functionalities that can be reused because they are not apart of the domain model
