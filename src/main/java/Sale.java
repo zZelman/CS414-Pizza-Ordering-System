@@ -59,14 +59,12 @@ public class Sale {
     /**
         Return a string representation of all of the items in this sale
     */
-    public String look() {
-        StringBuilder sb = new StringBuilder();
+    public ArrayList<String> look() {
+        ArrayList<String> names = new ArrayList<String>();
         for (Item i : items) {
-            sb.append(i.getName());
-            sb.append(", ");
+            names.add(i.getName());
         }
-        sb.setLength(sb.length() - 2);
-        return sb.toString();
+        return names;
     }
     
     public String toString() {
@@ -77,7 +75,7 @@ public class Sale {
         for (Item i : items) {
             sb.append(i.getName() + ", ");
         }
-        sb.setLength(sb.length() - 1);
+        sb.setLength(sb.length() - 2);
         sb.append("]");
         
         return sb.toString();

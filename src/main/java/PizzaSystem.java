@@ -433,7 +433,7 @@ public class PizzaSystem {
     
         @return null if stack is empty
     */
-    public String viewNextOrder() {
+    public ArrayList<String> viewNextOrder() {
         try {
             Sale s = cheifOrders.peek();
             return s.look();
