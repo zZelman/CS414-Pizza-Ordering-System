@@ -6,4 +6,9 @@ import org.junit.After;
 import static org.junit.Assert.*;
 
 public class TestSale {
+	
+	@Test
+    public void testSaleLogic() {
+		//TODO:
+    }	
 }

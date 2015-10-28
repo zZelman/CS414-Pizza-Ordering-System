@@ -1,0 +1,4 @@
+The idea we will be going with moving forward is test first development (We technically started with all of our diagramming and SSD's).
+We will be making tests for all basic logic functions which include all branches of the logic,
+Then we will boundary test each function in order to assure that is only accepts logical input and properly handles what happens when it does not receive proper input
+After it passes that, we will be doing generic system functionality tests in order to ensure that the entire system is working as intended
