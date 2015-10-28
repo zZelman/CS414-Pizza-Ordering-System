@@ -5,6 +5,8 @@ import org.junit.After;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 public class TestSale {
     private Item i1;
     private int id;
@@ -25,7 +27,7 @@ public class TestSale {
         s.add(i1);
         s.add(i1);
         
-        assertEquals(s.getTotal(), "20");
+        assertEquals(s.getTotal(), "20.0");
     }
     
     @Test
