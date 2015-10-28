@@ -10,12 +10,12 @@ import java.util.ArrayList;
 public class Playground {
     @Test
     public void testJava() {
-        // String s = null;
-        // System.out.println(s);
+        String s = null;
+        System.out.println(s);
         
-        ArrayList<String> als = new ArrayList<String>();
-        als.add("Hello");
-        als.add("world!");
-        System.out.println(als);
+        // ArrayList<String> als = new ArrayList<String>();
+        // als.add("Hello");
+        // als.add("world!");
+        // System.out.println(als);
     }
 }

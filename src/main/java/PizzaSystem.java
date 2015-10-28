@@ -259,7 +259,12 @@ public class PizzaSystem {
             return null;
         }
         
-        return foundMenu.getSpecial().getName();
+        Item i = foundMenu.getSpecial();
+        if (i == null) {
+            return null;
+        } else {
+            return i.getName();
+        }
     }
     
     /**
