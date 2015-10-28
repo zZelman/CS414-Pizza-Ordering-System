@@ -14,3 +14,9 @@ hs_err_pid*
 # gradle
 .gradle/
 build/
+
+# hidden files
+.*
+
+# linux backups
+*~
