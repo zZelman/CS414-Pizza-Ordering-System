@@ -5,9 +5,9 @@ import org.junit.After;
 import static org.junit.Assert.*;
 
 public class TestPizzaSystem {
-	
-	@Test
+
+    @Test
     public void testPizzaSystemLogic() {
-		//TODO:
-    }	
+        //TODO:
+    }
 }

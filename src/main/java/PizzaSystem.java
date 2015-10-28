@@ -237,6 +237,32 @@ public class PizzaSystem {
     }
     
     /**
+        Returns the special name (if exists) for a menu (if exists)
+    
+        @note Menus are considered unique by their name
+        @return null if menu did not have a speical or menu did not exist
+    */
+    public String getMenuSpecial(String menuName) {
+        Menu foundMenu = null;
+        
+        Menu tmpMenu = new Menu(menuName, "");
+        
+        boolean menuFound = false;
+        for (Menu m : this.menus) {
+            if (m.equals(tmpMenu)) {
+                foundMenu = m;
+                menuFound = true;
+                break;
+            }
+        }
+        if (menuFound == false) {
+            return null;
+        }
+        
+        return foundMenu.getSpecial().getName();
+    }
+    
+    /**
         Removes the given item (if it exists) to the given menu (if exists)
     
         @note Items are considered unique by their name
@@ -365,6 +391,20 @@ public class PizzaSystem {
     }
     
     /**
+        Returns the total sale cost (if active)
+    
+        @return null if sale is not active
+                0 if there are no items in sale
+    */
+    public String getSaleTotal() {
+        if (!this.isSaleActive()) {
+            return null;
+        }
+
+        return currentSale.getTotal();
+    }
+    
+    /**
         Attempt to end the current sale with the payment provided
         Then hand off the sale to the chief orders
     
@@ -395,7 +435,7 @@ public class PizzaSystem {
     */
     public String viewNextOrder() {
         try {
-            Sale s = cheifOrders.peak();
+            Sale s = cheifOrders.peek();
             return s.look();
         } catch (EmptyStackException e) {
             return null;

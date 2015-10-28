@@ -6,9 +6,9 @@ import org.junit.After;
 import static org.junit.Assert.*;
 
 public class TestLedger {
-	
-	@Test
+
+    @Test
     public void testLedgerLogic() {
-		//TODO:
-    }	
+        //TODO:
+    }
 }

@@ -29,6 +29,14 @@ public class Sale {
         return this.items.remove(item);
     }
     
+    public String getTotal() {
+        double totalRequired = 0;
+        for (Item i : items) {
+            totalRequired += i.getPrice();
+        }
+        return Double.toString(totalRequired);
+    }
+    
     /**
         Attempt to accept the amount of currency provided
     
@@ -36,7 +44,7 @@ public class Sale {
                 false if < required
     */
     public boolean pay(double payment) {
-        boolean totalRequired = 0;
+        double totalRequired = 0;
         for (Item i : items) {
             totalRequired += i.getPrice();
         }
