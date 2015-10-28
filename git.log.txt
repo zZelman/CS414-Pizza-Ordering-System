@@ -1,0 +1,397 @@
+commit 7ddafae3aa5bf062560a9250e550ef7ad1372934
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 22:59:45 2015 +0000
+
+    checkboxes
+
+commit 0e35013d8978b82f51bec7bf3bb27af2a4a93e5d
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 22:38:57 2015 +0000
+
+    Diagrams
+
+commit a896b3b82149578fb946ced4ddd2fa07b0713f1a
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 21:46:30 2015 -0600
+
+    aa
+
+commit 2c674ba2854a8d82d6e3f867bce46dbb192809ee
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 21:44:56 2015 -0600
+
+    changed where chef writes to
+
+commit c22857cba18a7fe625e9deb364198c84f06f2f80
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 21:34:27 2015 -0600
+
+    Revert "a"
+    
+    This reverts commit fd4b6b14bbfb7a7211f1c5ebb282fb9f5d163922.
+
+commit 89e6bbb4f71f6c99c74a7926af22752df3a86424
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 21:33:07 2015 -0600
+
+    a
+
+commit 1d33c949d9213b0b3c7bcbf413e1385ec49328ee
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 21:35:48 2015 +0000
+
+    Fixing nuked commit
+
+commit e263aefad6006cb74b71b6df54a8a796b2e1dbf8
+Merge: c007041 d0fd1a3
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 21:27:02 2015 -0600
+
+    Merge branch 'master' of https://github.com/zZelman/CS414-Pizza-Ordering-System
+
+commit c007041038eb755a1542453a7d71555d8b7f931f
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 21:24:14 2015 -0600
+
+    documentation
+
+commit 3409d0cee32a90ea06fe26601f4217a4660cc0f2
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 20:57:39 2015 -0600
+
+    System Test Plan Completed
+
+commit cbafc06b0b5f80f5522cfd34d85e70bf6d24880c
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 20:38:59 2015 -0600
+
+    null pointing
+
+commit ef020a7c54243e760e32425b936e388d6ec7e0fd
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 20:32:44 2015 -0600
+
+    changed from final to class variable
+
+commit 8a7dc94607965033166926961a0163e809635b5a
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 20:21:55 2015 -0600
+
+    aa
+
+commit d0fd1a3d2dfcf9ea35e612274ca8058a6c07d9ca
+Merge: 62ed0b4 3409d0c
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 21:22:32 2015 +0000
+
+    Merge branch 'master' of github.com:zZelman/CS414-Pizza-Ordering-System
+
+commit 62ed0b4547dfc7bf197882521083fc276fb8501c
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 21:22:08 2015 +0000
+
+    Finished Runner
+
+commit 6aaaa0c6e668c3e9299302a0fa715c9d92752ba0
+Merge: 82bafde cbafc06
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 20:39:06 2015 +0000
+
+    Merge branch 'master' of github.com:zZelman/CS414-Pizza-Ordering-System
+
+commit 82bafdebfe336601c010fb2050e383feb4380340
+Merge: 6054e51 ef020a7
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 20:33:24 2015 +0000
+
+    Merge branch 'master' of github.com:zZelman/CS414-Pizza-Ordering-System
+
+commit 6054e513f697983e947e9072cfe418b3d6b34a2c
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 20:33:03 2015 +0000
+
+    formatted code
+
+commit c3b859a7eef6d2f56d6bca7f3f39f6f0f4413311
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 20:13:13 2015 +0000
+
+    Fully implemented TestPizzaSystem's tests
+
+commit 3adfd6c9bba9901016fc0c7c7cd8dd4128d02578
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 20:01:41 2015 -0600
+
+    f
+
+commit e78326cb964624630aceeb44552bade87603ba42
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 19:57:06 2015 -0600
+
+    a
+
+commit 6d81fc413defa3a77835e841ac1eb90c3488c2d4
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 19:52:12 2015 -0600
+
+    test plan updates
+
+commit 72ec33a3ca82094e0bb2b2be8df6aff250007c59
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 19:43:52 2015 -0600
+
+    special in kiosk
+
+commit 131af867e4363d6a801d61b698f008d7d45cbfef
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 19:33:53 2015 -0600
+
+    updates yadda yadda
+
+commit 6e403908d07896eafce98baae1da313ed17b58c7
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 18:58:51 2015 -0600
+
+    System Test Plan update
+
+commit 0c500aaf4cb6935aace9818626d8738b9d2f2850
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 18:45:11 2015 -0600
+
+    null checking on orders
+
+commit 28b6a01d7130b87a3d5b1b6559c6c38f5d50d7aa
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 18:43:02 2015 +0000
+
+    made compile
+
+commit 601a00b8eeec0cef031ed9005f3f60efad929018
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 18:38:49 2015 -0600
+
+    Significant Work Done in ChefGui
+
+commit e4577731030c1fe23aa36e5bc7e1f14098020420
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 18:27:59 2015 +0000
+
+    formatted code
+
+commit cb5f3ec28d9b377127edc7510aa8d3ba027a7093
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 18:20:41 2015 +0000
+
+    made project compile
+
+commit 1840444ac0eca1a85a3a27708e5a023e210c9f75
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 18:17:24 2015 -0600
+
+    a
+
+commit be6cea31f12da9cb4992f8189ecd2e112a89509b
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 18:04:51 2015 +0000
+
+    made project compile
+
+commit 5bfadd13836ebd6a11f2cbe31e70dbe2cfacc6c1
+Merge: ef3e46f 00bb1e9
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 17:42:21 2015 +0000
+
+    Merge branch 'master' of github.com:zZelman/CS414-Pizza-Ordering-System
+
+commit 00bb1e9a118decf6c42581c1ce10d1d95b63c3fe
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 17:22:46 2015 -0600
+
+    Kiosk Implemented
+
+commit ef3e46f3c0b6bb58b46dbfd9fdcc85229383d05c
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 17:42:02 2015 +0000
+
+    working on test cases
+
+commit 4925670ebcacfc1ce72cf4660fdd8b6e1f0c52b6
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 17:23:18 2015 +0000
+
+    working on test cases
+
+commit 902b6e094c7cbb6c89dda4aaac1a3651670cc00d
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 16:13:56 2015 -0600
+
+    minor change to package
+
+commit 63f854cee7e0c693e3d1f66266231b973c2f52f7
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 16:13:01 2015 -0600
+
+    Manager Gui actually running
+
+commit 2532f3c400c5cc053f8f4085d76d3d9a64d5d179
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 16:18:21 2015 +0000
+
+    created a way to set a special on a menu
+
+commit 0e70db81d79b5b056571b23e3e939759a65657f9
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 16:09:49 2015 +0000
+
+    finished writting the general function calls for the backend system
+
+commit b9ec5d1ef861bbcb0ffbcf02f908023f93057efb
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 09:15:53 2015 +0000
+
+    changed README format
+
+commit f67819076b36c913178c66b88668778da8f3ced3
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Wed Oct 28 09:09:47 2015 +0000
+
+    changed gitignore to hide lock files and hidden ones
+
+commit 10db72623970fc5f185966e5beba9a33feeb78e7
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 06:38:32 2015 -0600
+
+    wrote into readme changes to layout
+
+commit 945c51cce17ffb7dd70b098f3f7c9b2c06572cf7
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 06:35:12 2015 -0600
+
+    refactored the testing folder layout and removed some bloat
+
+commit 9df87822e5191ce0c554c5e01913aba6281ad9b7
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 04:54:43 2015 -0600
+
+    Updated some of the testing & wrote in some System Test Plan Info
+
+commit a59a23bcf9dbf8ef33abd05d51adb87fd7b30ff7
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 04:47:49 2015 -0600
+
+    Built ChefGUI
+
+commit c0a092a24a67fb5bb5410efe01d55a2e2ab91d01
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 04:44:26 2015 -0600
+
+    Built Kiosk GUI
+
+commit 3c94a3c16972d03b0d3a20799f23d96181ace9b0
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 04:34:08 2015 -0600
+
+    Built Manager GUI
+    
+    still needs hook ins, waiting for kyle to wake up before continuing
+
+commit 2d554e88f37b018afd501009e67496d17afaf9e2
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 04:00:07 2015 -0600
+
+    Started The System Test Plan
+    
+    Transferring written documentation to the actual file
+
+commit cc085bb935c79bdc7b1cfa21128a445525847269
+Author: Kyol <kiel5454@gmail.com>
+Date:   Wed Oct 28 03:53:29 2015 -0600
+
+    work done on the ssd diagrams.
+
+commit 21cfe88791692fdcf16abeef1061a858336d0dc3
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Tue Oct 27 19:54:48 2015 +0000
+
+    significant work has been done on the backend system
+
+commit feaeda395a2feb48e87c32a938edc2687653f8d4
+Merge: a5bbf4e ffa93a4
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Tue Oct 27 14:01:25 2015 +0000
+
+    Merge branch 'master' of github.com:zZelman/CS414-Pizza-Ordering-System
+
+commit ffa93a472b21d918277a84c877b2f021bbe273e9
+Author: Kyol <kiel5454@gmail.com>
+Date:   Tue Oct 27 13:50:57 2015 -0600
+
+    Intro on how we will be testing
+
+commit 2eda0275cd3e0bbc85ba1fdfefaccefe6c9aaa4e
+Author: Kyol <kiel5454@gmail.com>
+Date:   Tue Oct 27 13:50:28 2015 -0600
+
+    JUnit Markup Beginning
+
+commit a5bbf4e7ff5837be83aecdf973387be87153115e
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Tue Oct 27 14:01:07 2015 +0000
+
+    setup dir structure
+
+commit 6a48c35e461c416a1f6f6418f1588a485bac3d78
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Tue Oct 27 13:47:46 2015 +0000
+
+    testing new colaborator
+
+commit 80c4a79beb40fdd477bb72da96aaac87323f03d0
+Author: Kyol <kiel5454@gmail.com>
+Date:   Tue Oct 27 13:46:16 2015 -0600
+
+    Starting Testing Suite
+    
+    aaa
+
+commit 90a582ae2d061aac7002a5b8f3b837a5ee90a921
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Tue Oct 27 08:58:18 2015 +0000
+
+    broke down the assignment into a org file
+
+commit 9355fd60d446c901a5f7a827c0728572e50b0c0b
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Mon Oct 19 04:46:06 2015 +0000
+
+    worked on first ssd for place order use case
+
+commit bdd529c1e06f99277b88ea482ad6f928a4f7aade
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Mon Oct 19 01:59:40 2015 +0000
+
+    updated README.md to show what tools are used in this project
+
+commit d3d3f355a66c4529e7ebcaa2db90d76018f51cff
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Mon Oct 19 01:34:11 2015 +0000
+
+    corrected a2 and a3, you can see their before and after
+
+commit 5e5204f19633a02d52d80b7084bca5cfb434f89e
+Author: Kyle Avrett <kaavrett@gmail.com>
+Date:   Sun Oct 18 23:59:29 2015 +0000
+
+    no work has been done, adding relivant files to project
+
+commit a10f7a5dd03607f09182061d54cbf0991eb57797
+Author: Kyle Avrett <zzelman@localhost.localdomain>
+Date:   Sun Oct 18 15:23:41 2015 +0000
+
+    setup project and added diagrams to source control
+
+commit 11311d6f31dc4c60407eff01c7580cd23ba036c4
+Author: zZelman <kaavrett@gmail.com>
+Date:   Sun Oct 18 21:12:03 2015 +0000
+
+    Initial commit
