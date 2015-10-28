@@ -6,7 +6,12 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JTextField;
 import java.awt.Font;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
 
 public class KioskGUI {
 
@@ -15,6 +20,12 @@ public class KioskGUI {
 	private JTextField txtYourOrder;
 	private JTextField textField;
 	private JTextField txtYourPaymentInformation;
+	private PizzaSystem system;
+	DefaultListModel model;
+	DefaultListModel model2;
+	
+	JList menu;
+	JList order;
 
 	/**
 	 * Launch the application.
@@ -35,10 +46,29 @@ public class KioskGUI {
 	/**
 	 * Create the application.
 	 */
-	public KioskGUI() {
+	public KioskGUI(PizzaSystem system) {
+		this.system = system;
 		initialize();
 	}
 
+	public void buildOrder(){
+		if(model2.getSize() > 0){
+			model2.removeAllElements();
+		}
+		ArrayList<String> names = system.getSaleItemNames();
+		for(String s : names){
+			model2.addElement(s);
+		}
+	}
+	
+	public void buildMenu(){
+		ArrayList<String> m = system.getMenuNames();
+		ArrayList<String> i = system.getMenuItems(m.get(0));
+		for(String t : i){
+			model.addElement(t);
+		}
+	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -49,19 +79,21 @@ public class KioskGUI {
 		frmKiosk.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmKiosk.getContentPane().setLayout(null);
 		
-		JList list = new JList();
-		list.setBounds(10, 44, 277, 301);
-		frmKiosk.getContentPane().add(list);
+		model = new DefaultListModel();
+		menu = new JList(model);
+		menu.setBounds(10, 100, 277, 258);
+		frmKiosk.getContentPane().add(menu);
 		
-		JList list_1 = new JList();
-		list_1.setBounds(334, 44, 340, 301);
-		frmKiosk.getContentPane().add(list_1);
+		model2 = new DefaultListModel();
+		order = new JList(model2);
+		order.setBounds(334, 100, 340, 258);
+		frmKiosk.getContentPane().add(order);
 		
 		txtMenu = new JTextField();
 		txtMenu.setEditable(false);
 		txtMenu.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtMenu.setText("Menu");
-		txtMenu.setBounds(10, 11, 42, 20);
+		txtMenu.setBounds(10, 69, 42, 20);
 		frmKiosk.getContentPane().add(txtMenu);
 		txtMenu.setColumns(10);
 		
@@ -69,32 +101,68 @@ public class KioskGUI {
 		txtYourOrder.setEditable(false);
 		txtYourOrder.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtYourOrder.setText("Your Order");
-		txtYourOrder.setBounds(334, 11, 86, 20);
+		txtYourOrder.setBounds(334, 69, 86, 20);
 		frmKiosk.getContentPane().add(txtYourOrder);
 		txtYourOrder.setColumns(10);
-		
-		JButton btnAddToOrder = new JButton("Add to Order");
-		btnAddToOrder.setBounds(10, 356, 122, 23);
-		frmKiosk.getContentPane().add(btnAddToOrder);
-		
-		JButton btnRemoveFromOrder = new JButton("Remove from Order");
-		btnRemoveFromOrder.setBounds(334, 356, 159, 23);
-		frmKiosk.getContentPane().add(btnRemoveFromOrder);
 		
 		textField = new JTextField();
 		textField.setBounds(10, 431, 315, 20);
 		frmKiosk.getContentPane().add(textField);
 		textField.setColumns(10);
 		
+		txtYourPaymentInformation = new JTextField();
+		txtYourPaymentInformation.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		txtYourPaymentInformation.setText("Payment Amount");
+		txtYourPaymentInformation.setBounds(10, 403, 108, 20);
+		frmKiosk.getContentPane().add(txtYourPaymentInformation);
+		txtYourPaymentInformation.setColumns(10);
+		
+		buildMenu();
+		
+		//START A TRANSACTION
+		JButton btnNewButton_1 = new JButton("Start a Transaction");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				system.beginSale();
+			}
+		});
+		btnNewButton_1.setBounds(10, 11, 664, 46);
+		frmKiosk.getContentPane().add(btnNewButton_1);
+		
+		//ADD TO ORDER
+		JButton btnAddToOrder = new JButton("Add to Order");
+		btnAddToOrder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				system.addItemToSale(menu.getSelectedValue());
+				buildOrder();
+			}
+		});
+		btnAddToOrder.setBounds(10, 369, 122, 23);
+		frmKiosk.getContentPane().add(btnAddToOrder);
+		
+		//REMOVE FROM ORDER
+		JButton btnRemoveFromOrder = new JButton("Remove from Order");
+		btnRemoveFromOrder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				system.removeItemFromSale(menu.getSelectedValue());
+				buildOrder();
+			}
+		});
+		btnRemoveFromOrder.setBounds(334, 369, 159, 23);
+		frmKiosk.getContentPane().add(btnRemoveFromOrder);
+		
+		//CONFIRM ORDER AND PAYMENT
 		JButton btnNewButton = new JButton("Confirm Order and Payment");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(system.endSale(Double.parseDouble(textField.getText()))){
+					model2.removeAllElements();
+				}
+					
+			}
+		});
 		btnNewButton.setBounds(334, 430, 340, 23);
 		frmKiosk.getContentPane().add(btnNewButton);
 		
-		txtYourPaymentInformation = new JTextField();
-		txtYourPaymentInformation.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		txtYourPaymentInformation.setText("Your Payment Information");
-		txtYourPaymentInformation.setBounds(10, 403, 159, 20);
-		frmKiosk.getContentPane().add(txtYourPaymentInformation);
-		txtYourPaymentInformation.setColumns(10);
 	}
 }
