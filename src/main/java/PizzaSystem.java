@@ -400,7 +400,7 @@ public class PizzaSystem {
         if (!this.isSaleActive()) {
             return null;
         }
-
+        
         return currentSale.getTotal();
     }
     

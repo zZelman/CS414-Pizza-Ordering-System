@@ -157,10 +157,10 @@ public class ManagerGui {
         JButton btnSetSpecial = new JButton("Set Special");
         btnSetSpecial.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-				String textFieldValue = textField.getText();
-				String[] s = textFieldValue.split(",");
-				system.setMenuSpecial(s[0],s[1]);
-            
+                String textFieldValue = textField.getText();
+                String[] s = textFieldValue.split(",");
+                system.setMenuSpecial(s[0], s[1]);
+                
             }
         });
         btnSetSpecial.setBounds(10, 120, 148, 23);
