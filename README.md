@@ -9,3 +9,7 @@
 * LibreOffice
 * Emacs Org Mode
   * Files with the extension '.org' are meant to be viewed in Emacs' Major Mode Org
+
+  
+#HOW TO RUN THE SYSTEM
+*TODO: write out how we have been running the system
