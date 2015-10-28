@@ -1,4 +1,3 @@
-package cs414a4;
 
 import java.awt.EventQueue;
 
