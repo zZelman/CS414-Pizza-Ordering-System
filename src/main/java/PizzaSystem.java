@@ -195,6 +195,48 @@ public class PizzaSystem {
     }
     
     /**
+        Sets the special (if exists) for a menu (if exists)
+    
+        @note Items are considered unique by their name
+        @note Menus are considered unique by their name
+        @return true if special was set
+                false if not set, menu did not exist, or item did not exist
+    */
+    public boolean setMenuSpecial(String itemName, String menuName) {
+        Item foundItem = null;
+        Menu foundMenu = null;
+        
+        Item tmpItem = new Item(itemName, "", -1);
+        Menu tmpMenu = new Menu(menuName, "");
+        
+        boolean itemFound = false;
+        for (Item i : this.items) {
+            if (tmpItem.equals(i)) {
+                foundItem = i;
+                itemFound = true;
+                break;
+            }
+        }
+        if (itemFound == false) {
+            return false;
+        }
+        
+        boolean menuFound = false;
+        for (Menu m : this.menus) {
+            if (m.equals(tmpMenu)) {
+                foundMenu = m;
+                menuFound = true;
+                break;
+            }
+        }
+        if (menuFound == false) {
+            return false;
+        }
+        
+        return foundMenu.setSpecial(foundItem);
+    }
+    
+    /**
         Removes the given item (if it exists) to the given menu (if exists)
     
         @note Items are considered unique by their name
