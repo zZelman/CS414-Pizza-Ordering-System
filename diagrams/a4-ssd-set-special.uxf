@@ -5,7 +5,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>330</x>
-      <y>60</y>
+      <y>20</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -16,7 +16,7 @@
     <id>Relation</id>
     <coordinates>
       <x>220</x>
-      <y>110</y>
+      <y>70</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -28,7 +28,7 @@ completeOrder</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>370</x>
-      <y>80</y>
+      <y>40</y>
       <w>30</w>
       <h>760</h>
     </coordinates>
@@ -39,7 +39,7 @@ completeOrder</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>510</x>
-      <y>60</y>
+      <y>20</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -50,7 +50,7 @@ completeOrder</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>550</x>
-      <y>80</y>
+      <y>40</y>
       <w>30</w>
       <h>760</h>
     </coordinates>
@@ -61,7 +61,7 @@ completeOrder</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>370</x>
-      <y>140</y>
+      <y>100</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -73,7 +73,7 @@ completeOrder</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>690</x>
-      <y>60</y>
+      <y>20</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -84,7 +84,7 @@ completeOrder</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>730</x>
-      <y>80</y>
+      <y>40</y>
       <w>30</w>
       <h>220</h>
     </coordinates>
@@ -95,7 +95,7 @@ completeOrder</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>550</x>
-      <y>200</y>
+      <y>160</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -107,7 +107,7 @@ getPrice</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>550</x>
-      <y>230</y>
+      <y>190</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -119,7 +119,7 @@ Price</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>450</x>
-      <y>180</y>
+      <y>140</y>
       <w>310</w>
       <h>130</h>
     </coordinates>
@@ -134,7 +134,7 @@ halign=left
     <id>Relation</id>
     <coordinates>
       <x>550</x>
-      <y>320</y>
+      <y>280</y>
       <w>180</w>
       <h>60</h>
     </coordinates>
@@ -146,7 +146,7 @@ calculate priceTotal</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>370</x>
-      <y>370</y>
+      <y>330</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -158,7 +158,7 @@ priceTotal</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>220</x>
-      <y>410</y>
+      <y>370</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -170,7 +170,7 @@ pay(payment)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>370</x>
-      <y>820</y>
+      <y>780</y>
       <w>740</w>
       <h>30</h>
     </coordinates>
@@ -181,7 +181,7 @@ pay(payment)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>370</x>
-      <y>440</y>
+      <y>400</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -193,7 +193,7 @@ pay(payment)</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>730</x>
-      <y>280</y>
+      <y>240</y>
       <w>20</w>
       <h>20</h>
     </coordinates>
@@ -204,7 +204,7 @@ pay(payment)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>550</x>
-      <y>480</y>
+      <y>440</y>
       <w>370</w>
       <h>40</h>
     </coordinates>
@@ -216,7 +216,7 @@ validate(payment, priceTotal)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>830</x>
-      <y>60</y>
+      <y>20</y>
       <w>150</w>
       <h>30</h>
     </coordinates>
@@ -227,7 +227,7 @@ validate(payment, priceTotal)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>890</x>
-      <y>80</y>
+      <y>40</y>
       <w>30</w>
       <h>760</h>
     </coordinates>
@@ -238,7 +238,7 @@ validate(payment, priceTotal)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>550</x>
-      <y>510</y>
+      <y>470</y>
       <w>370</w>
       <h>40</h>
     </coordinates>
@@ -250,7 +250,7 @@ isValidPayment</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>80</x>
-      <y>550</y>
+      <y>510</y>
       <w>1140</w>
       <h>240</h>
     </coordinates>
@@ -269,7 +269,7 @@ halign=left
     <id>Relation</id>
     <coordinates>
       <x>370</x>
-      <y>560</y>
+      <y>520</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -281,7 +281,7 @@ notifyBadPayment</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>220</x>
-      <y>580</y>
+      <y>540</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -293,7 +293,7 @@ notifyBadPayment</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>550</x>
-      <y>630</y>
+      <y>590</y>
       <w>570</w>
       <h>40</h>
     </coordinates>
@@ -305,7 +305,7 @@ placeOrder</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1020</x>
-      <y>60</y>
+      <y>20</y>
       <w>150</w>
       <h>30</h>
     </coordinates>
@@ -316,7 +316,7 @@ placeOrder</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1090</x>
-      <y>80</y>
+      <y>40</y>
       <w>30</w>
       <h>760</h>
     </coordinates>
@@ -327,7 +327,7 @@ placeOrder</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>370</x>
-      <y>710</y>
+      <y>670</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -339,7 +339,7 @@ notifySuccess</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>220</x>
-      <y>740</y>
+      <y>700</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -351,7 +351,7 @@ notifySuccess</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1090</x>
-      <y>660</y>
+      <y>620</y>
       <w>130</w>
       <h>60</h>
     </coordinates>
@@ -363,7 +363,7 @@ recordOrder</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>20</x>
-      <y>60</y>
+      <y>20</y>
       <w>200</w>
       <h>70</h>
     </coordinates>
