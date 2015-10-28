@@ -17,6 +17,8 @@ public class ManagerGui {
     private JFrame frmManagerGui;
     private JTextField textField;
     private PizzaSystem system;
+	JTextPane textPane_1;
+	JTextArea existingItems;
     
     /**
         Launch the application.
@@ -112,7 +114,7 @@ public class ManagerGui {
         txtpnListOfExisting.setBounds(340, 25, 128, 24);
         frmManagerGui.getContentPane().add(txtpnListOfExisting);
         
-        final JTextPane textPane_1 = new JTextPane();
+        JTextPane textPane_1 = new JTextPane();
         textPane_1.setEditable(false);
         textPane_1.setBounds(10, 175, 312, 251);
         frmManagerGui.getContentPane().add(textPane_1);
@@ -128,7 +130,7 @@ public class ManagerGui {
         frmManagerGui.getContentPane().add(textField);
         textField.setColumns(10);
         
-        final JTextArea existingItems = new JTextArea();
+        JTextArea existingItems = new JTextArea();
         existingItems.setEditable(false);
         existingItems.setBounds(340, 59, 322, 367);
         frmManagerGui.getContentPane().add(existingItems);
