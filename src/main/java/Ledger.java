@@ -4,6 +4,10 @@ import java.util.ArrayList;
 public class Ledger {
     private ArrayList<String> history;
     
+    public ArrayList<String> getHistory() {
+        return this.history;
+    }
+    
     public Ledger() {
         this.history = new ArrayList<String>();
     }

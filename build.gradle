@@ -9,16 +9,16 @@ dependencies {
 }
 
 task manager(type:JavaExec) {
-    main = ManagerGui
+    main = "ManagerGui"
     classpath = sourceSets.main.runtimeClasspath
 }
 
 task kiosk(type:JavaExec) {
-    main = KioskGUI
+    main = "KioskGUI"
     classpath = sourceSets.main.runtimeClasspath
 }
 
 task chef(type:JavaExec) {
-    main = ChefGUI
+    main = "ChefGUI"
     classpath = sourceSets.main.runtimeClasspath
 }
