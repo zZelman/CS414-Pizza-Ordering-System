@@ -1,5 +1,8 @@
 # CS414-Pizza-Ordering-System
 
+#Refer to the Breakdown folder for most major documentation, including but not limited to our testing methodology, system test plan, grasp ideologies and more
+
+
 ## Tools Used
 * UMLet
   * Files with the extension '.uxf' are meant to be viewed with UMLet
