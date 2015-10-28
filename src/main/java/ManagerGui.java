@@ -55,48 +55,49 @@ public class ManagerGui {
         return list;
     }
     
-	public boolean sanity(String s, int c){
-		int x = 0;
-		int index = 0;
-		int index2 = 0;
-		if(c == 1){
-			if(s.length() >= 3){
-				for(int i = 0; i < s.length()){
-					if(s.charAt(i) == ","){
-						x++;
-						index = i;
-					}
-				}
-				if((x==1) && (index != 0)){
-					if( index != s.length()-1 )
-						return true;
-				}
-			}
-		} else if (c == 2){
-			if(s.length() >= 5){
-				for(int i = 0; i < s.length()){
-					if(s.charAt(i) == ","){
-						x++;
-						if(index== 0){
-							index = i;
-						} else {
-							index2 = i;
-						}	
-					}
-				}
-				if((x==2) && (index != 0)){
-					if((index2 != (index + 1)) && (index2 != s.length()-1)){
-						return true;
-					}
-				}
-				
-				
-			}
-		}
-		return false;
-		
-	}
-	
+    public boolean sanity(String s, int c) {
+        int x = 0;
+        int index = 0;
+        int index2 = 0;
+        if (c == 1) {
+            if (s.length() >= 3) {
+                for (int i = 0; i < s.length(); ++i) {
+                    if (s.charAt(i) == ',') {
+                        x++;
+                        index = i;
+                    }
+                }
+                if ((x == 1) && (index != 0)) {
+                    if (index != s.length() - 1) {
+                        return true;
+                    }
+                }
+            }
+        } else if (c == 2) {
+            if (s.length() >= 5) {
+                for (int i = 0; i < s.length(); ++i) {
+                    if (s.charAt(i) == ',') {
+                        x++;
+                        if (index == 0) {
+                            index = i;
+                        } else {
+                            index2 = i;
+                        }
+                    }
+                }
+                if ((x == 2) && (index != 0)) {
+                    if ((index2 != (index + 1)) && (index2 != s.length() - 1)) {
+                        return true;
+                    }
+                }
+                
+                
+            }
+        }
+        return false;
+        
+    }
+    
     private void initialize() {
         frmManagerGui = new JFrame();
         frmManagerGui.setTitle("Manager Gui");
@@ -137,11 +138,11 @@ public class ManagerGui {
         btnCreateItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 String textFieldValue = textField.getText();
-				if(sanity(textFieldValue, 2)){					
-					String[] s = textFieldValue.split(",");
-					system.createItem(s[0], s[1], Double.parseDouble(s[2]));
-					existingItems.setText(AtoS(system.getItemNames()));	
-				}
+                if (sanity(textFieldValue, 2)) {
+                    String[] s = textFieldValue.split(",");
+                    system.createItem(s[0], s[1], Double.parseDouble(s[2]));
+                    existingItems.setText(AtoS(system.getItemNames()));
+                }
             }
         });
         btnCreateItem.setBounds(10, 60, 148, 23);
@@ -152,10 +153,10 @@ public class ManagerGui {
         btnDeleteItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String textFieldValue = textField.getText();
-				if(textFieldValue.length() > 0){
-					system.deleteItem(textFieldValue);
-					existingItems.setText(AtoS(system.getItemNames()));
-				}
+                if (textFieldValue.length() > 0) {
+                    system.deleteItem(textFieldValue);
+                    existingItems.setText(AtoS(system.getItemNames()));
+                }
             }
         });
         btnDeleteItem.setBounds(10, 89, 148, 23);
@@ -166,10 +167,10 @@ public class ManagerGui {
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String textFieldValue = textField.getText();
-				if(sanity(textFieldValue, 1)){	
-					String[] s = textFieldValue.split(",");
-					system.createMenu(s[0], s[1]);
-				}
+                if (sanity(textFieldValue, 1)) {
+                    String[] s = textFieldValue.split(",");
+                    system.createMenu(s[0], s[1]);
+                }
             }
         });
         btnNewButton_1.setBounds(168, 60, 154, 23);
@@ -180,11 +181,11 @@ public class ManagerGui {
         btnAddItemTo.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String textFieldValue = textField.getText();
-				if(sanity(textFieldValue, 1)){	
-					String[] s = textFieldValue.split(",");
-					system.addItemToMenu(s[0], s[1]);
-					textPane_1.setText(AtoS(system.getMenuItems(s[1])));
-				}
+                if (sanity(textFieldValue, 1)) {
+                    String[] s = textFieldValue.split(",");
+                    system.addItemToMenu(s[0], s[1]);
+                    textPane_1.setText(AtoS(system.getMenuItems(s[1])));
+                }
             }
         });
         btnAddItemTo.setBounds(168, 120, 154, 23);
@@ -195,11 +196,11 @@ public class ManagerGui {
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String textFieldValue = textField.getText();
-				if(sanity(textFieldValue, 1)){	
-					String[] s = textFieldValue.split(",");
-					system.removeItemFromMenu(s[0], s[1]);
-					textPane_1.setText(AtoS(system.getMenuItems(s[1])));
-				}
+                if (sanity(textFieldValue, 1)) {
+                    String[] s = textFieldValue.split(",");
+                    system.removeItemFromMenu(s[0], s[1]);
+                    textPane_1.setText(AtoS(system.getMenuItems(s[1])));
+                }
             }
         });
         btnNewButton.setBounds(168, 89, 154, 23);
@@ -210,10 +211,10 @@ public class ManagerGui {
         btnSetSpecial.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String textFieldValue = textField.getText();
-				if(sanity(textFieldValue, 1)){	
-					String[] s = textFieldValue.split(",");
-					system.setMenuSpecial(s[0], s[1]);
-				}
+                if (sanity(textFieldValue, 1)) {
+                    String[] s = textFieldValue.split(",");
+                    system.setMenuSpecial(s[0], s[1]);
+                }
                 
             }
         });

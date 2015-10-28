@@ -40,9 +40,10 @@ public class ChefGUI {
     }
     
     private String AtoS(ArrayList<String> a) {
-        if(a== null)
-			return " ";
-		String list = "";
+        if (a == null) {
+            return " ";
+        }
+        String list = "";
         for (String s : a) {
             list += s + "\n";
         }

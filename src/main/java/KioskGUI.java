@@ -64,11 +64,12 @@ public class KioskGUI {
     }
     
     public void buildMenu() {
-		ArrayList<String> m = system.getMenuNames();
+        ArrayList<String> m = system.getMenuNames();
         ArrayList<String> i = system.getMenuItems(m.get(0));
-		String Special = system.getMenuSpecial(m.get(0));
-		if(Special != null)
-			model.addElement("Today's Special is : " + Special)
+        String Special = system.getMenuSpecial(m.get(0));
+        if (Special != null) {
+            model.addElement("Today's Special is : " + Special);
+        }
         for (String t : i) {
             model.addElement(t);
         }
