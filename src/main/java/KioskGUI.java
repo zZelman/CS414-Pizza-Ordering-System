@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
 
 public class KioskGUI {
 
-    private JFrame frmKiosk;
+    public JFrame frmKiosk;
     private JTextField txtMenu;
     private JTextField txtYourOrder;
     private JTextField textField;

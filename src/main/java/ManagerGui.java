@@ -14,11 +14,11 @@ import java.awt.event.ActionEvent;
 
 public class ManagerGui {
 
-    private JFrame frmManagerGui;
+    public JFrame frmManagerGui;
     private JTextField textField;
     private PizzaSystem system;
-	JTextPane textPane_1;
-	JTextArea existingItems;
+    JTextPane textPane_1;
+    JTextArea existingItems;
     
     /**
         Launch the application.
@@ -51,13 +51,13 @@ public class ManagerGui {
     
     private String AtoS(ArrayList<String> a) {
         String list = "";
-		if(a != null){
-			
-			for (String s : a) {
-				list += s + "\n";
-			}
-			
-		}
+        if (a != null) {
+        
+            for (String s : a) {
+                list += s + "\n";
+            }
+            
+        }
         return list;
     }
     
@@ -219,7 +219,11 @@ public class ManagerGui {
                 String textFieldValue = textField.getText();
                 if (sanity(textFieldValue, 1)) {
                     String[] s = textFieldValue.split(",");
-                    system.setMenuSpecial(s[0], s[1]);
+                    if (system.setMenuSpecial(s[0], s[1])) {
+                        frmManagerGui.setVisible(false);
+                        new KioskGUI(system).frmKiosk.setVisible(true);
+                        new ChefGUI(system).frmOrdersToCook.setVisible(true);
+                    }
                 }
                 
             }

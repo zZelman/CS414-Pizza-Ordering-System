@@ -22,3 +22,8 @@ task chef(type:JavaExec) {
     main = "ChefGUI"
     classpath = sourceSets.main.runtimeClasspath
 }
+
+task demo(type:JavaExec) {
+    main = "Runner"
+    classpath = sourceSets.main.runtimeClasspath
+}

@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 
 public class ChefGUI {
 
-    private JFrame frmOrdersToCook;
+    public JFrame frmOrdersToCook;
     private JTextField txtOrders;
     private PizzaSystem system;
     
