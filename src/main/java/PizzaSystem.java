@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
+import java.util.EmptyStackException;
 
 public class PizzaSystem {
     private ArrayList<Item> items;
@@ -38,8 +39,8 @@ public class PizzaSystem {
         }
         
         Item temp = new Item(name, description, price);
-        if (!items.contains(temp)) {
-            items.add(temp);
+        if (!this.items.contains(temp)) {
+            this.items.add(temp);
             return true;
         }
         return false;
@@ -54,10 +55,10 @@ public class PizzaSystem {
     */
     public boolean deleteItem(String name) {
         Item temp = new Item(name, "", -1);
-        for (Menu m : menus) {
+        for (Menu m : this.menus) {
             m.removeItem(temp);
         }
-        return items.removeAll(Collections.singleton(temp));
+        return this.items.removeAll(Collections.singleton(temp));
     }
     
     /**
@@ -65,34 +66,66 @@ public class PizzaSystem {
     */
     public ArrayList<String> getItemNames() {
         ArrayList<String> names = new ArrayList<String>();
-        for (Item i : items) {
+        for (Item i : this.items) {
             names.add(i.getName());
         }
         return names;
     }
     
     /**
-        Returns the names of all menues in the business
+        Returns the names of all menues in4 the business
     */
     public ArrayList<String> getMenuNames() {
-        // TODO
-        return null;
+        ArrayList<String> names = new ArrayList<String>();
+        for (Menu m : this.menus) {
+            names.add(m.getName());
+        }
+        return names;
     }
     
     /**
         Returns a string represntation for each item on the menu specified
+    
+        @return null if bad menuName given, or menu did not exist
     */
     public ArrayList<String> getMenuItems(String menuName) {
-        // TODO
-        return null;
+        if (menuName == null || menuName.equals("")) {
+            return null;
+        }
+        
+        Menu foundMenu = null;
+        
+        Menu temp = new Menu(menuName, "");
+        
+        for (Menu m : this.menus) {
+            if (m.equals(temp)) {
+                foundMenu = m;
+                break;
+            }
+        }
+        if (foundMenu == null) {
+            return null;
+        }
+        
+        return foundMenu.getItemNames();
     }
     
     /**
         Returns a string representation for each item on the current sale
+    
+        @return null if sale is not active
     */
     public ArrayList<String> getSaleItemNames() {
-        // TODO
-        return null;
+        if (!this.isSaleActive()) {
+            return null;
+        }
+        
+        ArrayList<Item> currentSaleItems = this.currentSale.getItems();
+        ArrayList<String> names = new ArrayList<String>();
+        for (Item i : currentSaleItems) {
+            names.add(i.getName());
+        }
+        return names;
     }
     
     /**
@@ -112,8 +145,8 @@ public class PizzaSystem {
         }
         
         Menu temp = new Menu(name, description);
-        if (!menus.contains(temp)) {
-            menus.add(temp);
+        if (!this.menus.contains(temp)) {
+            this.menus.add(temp);
             return true;
         }
         return false;
@@ -135,7 +168,7 @@ public class PizzaSystem {
         Menu tmpMenu = new Menu(menuName, "");
         
         boolean itemFound = false;
-        for (Item i : items) {
+        for (Item i : this.items) {
             if (tmpItem.equals(i)) {
                 foundItem = i;
                 itemFound = true;
@@ -147,7 +180,7 @@ public class PizzaSystem {
         }
         
         boolean menuFound = false;
-        for (Menu m : menus) {
+        for (Menu m : this.menus) {
             if (m.equals(tmpMenu)) {
                 foundMenu = m;
                 menuFound = true;
@@ -177,7 +210,7 @@ public class PizzaSystem {
         Menu tmpMenu = new Menu(menuName, "");
         
         boolean itemFound = false;
-        for (Item i : items) {
+        for (Item i : this.items) {
             if (tmpItem.equals(i)) {
                 foundItem = i;
                 itemFound = true;
@@ -189,7 +222,7 @@ public class PizzaSystem {
         }
         
         boolean menuFound = false;
-        for (Menu m : menus) {
+        for (Menu m : this.menus) {
             if (m.equals(tmpMenu)) {
                 foundMenu = m;
                 menuFound = true;
@@ -220,7 +253,7 @@ public class PizzaSystem {
     */
     public boolean beginSale() {
         if (!this.isSaleActive()) {
-            this.currentSale = new Sale();
+            this.currentSale = new Sale(this.currentSaleID);
             return true;
         }
         return false;
@@ -243,7 +276,7 @@ public class PizzaSystem {
         Item tmpItem = new Item(itemName, "", -1);
         
         boolean itemFound = false;
-        for (Item i : items) {
+        for (Item i : this.items) {
             if (tmpItem.equals(i)) {
                 foundItem = i;
                 itemFound = true;
@@ -266,7 +299,6 @@ public class PizzaSystem {
                 false if not removed (ie, item did not exist, sale did not exist or sale did not have item)
     */
     public boolean removeItemFromSale(String itemName) {
-        // remove an item referance from the current sale
         if (!this.isSaleActive()) {
             return false;
         }
@@ -276,7 +308,7 @@ public class PizzaSystem {
         Item tmpItem = new Item(itemName, "", -1);
         
         boolean itemFound = false;
-        for (Item i : items) {
+        for (Item i : this.items) {
             if (tmpItem.equals(i)) {
                 foundItem = i;
                 itemFound = true;
@@ -292,37 +324,56 @@ public class PizzaSystem {
     
     /**
         Attempt to end the current sale with the payment provided
+        Then hand off the sale to the chief orders
     
         @return true if the payment >= required
-                false if < required
+                false if < required or sale not active
     */
     public boolean endSale(double payment) {
-        // finish the sale, hand it off to the cheif queue
-        // TODO
+        if (!this.isSaleActive()) {
+            return false;
+        }
+        
+        boolean pay = this.currentSale.pay(payment);
+        if (pay) {
+            this.cheifOrders.push(this.currentSale);
+            this.currentSale = null;
+            this.currentSaleID++;
+            return true;
+        } else {
+            return false;
+        }
     }
     
     /**
         Return a string represnetation of the next order that the cheif should do
         Names only (+ descriptions?)
+    
+        @return null if stack is empty
     */
     public String viewNextOrder() {
-        // peak at the chiefOrders
-        // TODO
-    }
-    
-    /**
-        Returns a string representation of how many orders the cheif has to do
-    */
-    public String viewNumOrders() {
-        // TODO
+        try {
+            Sale s = cheifOrders.peak();
+            return s.look();
+        } catch (EmptyStackException e) {
+            return null;
+        }
     }
     
     /**
         Complete the current working order and hand the sale off to the Ledger
+    
+        @return true if order was completed
+                false if there were no orders to complete
     */
-    public void completeNextOrder() {
-        // cheif has finished a sale, hand the sale off to the ledger
-        // TODO
+    public boolean completeNextOrder() {
+        try {
+            Sale s = cheifOrders.pop();
+            this.ledger.add(s);
+            return true;
+        } catch (EmptyStackException e) {
+            return false;
+        }
     }
     
 }

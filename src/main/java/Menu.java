@@ -76,6 +76,24 @@ public class Menu {
         return items.removeAll(Collections.singleton(item));
     }
     
+    /**
+        Returns a ArrayList represnetaion of this menu and its items
+    
+        @return null if there are no items
+    */
+    public ArrayList<String> getItemNames() {
+        if (this.items.isEmpty()) {
+            return null;
+        }
+        
+        ArrayList<String> names = new ArrayList<String>();
+        for (Item i : items) {
+            names.add(i.getName());
+        }
+        
+        return names;
+    }
+    
     @Override
     public String toString() {
         return "Menu[name:" + this.name +
