@@ -67,7 +67,8 @@ public class KioskGUI {
 		ArrayList<String> m = system.getMenuNames();
         ArrayList<String> i = system.getMenuItems(m.get(0));
 		String Special = system.getMenuSpecial(m.get(0));
-		model.addElement("Today's Special is : " + Special)
+		if(Special != null)
+			model.addElement("Today's Special is : " + Special)
         for (String t : i) {
             model.addElement(t);
         }
