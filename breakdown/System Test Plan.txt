@@ -10,8 +10,20 @@ After unit tests have been completed, the next task is to ensure the system func
 
 Testing Section 1.
 	These tests are automated, they will not involve entering in physical input, simply running the JUnit test cases we developed for our software.
-	
+	These tests are located at CS414-Pizza-Ordering-System/src/test/java
+		The JUnit testing suites are :
+			TestItem
+			TestLedger
+			TestMenu
+			TestSale
+			TestPizzaSystem
 
 Testing Section 2.
 	These test are non-automated, these will involve the tester physically entering the inputs and actually using the software we have developed.
-	
+	These tests will be done with the software running.
+		First we will do a system test of the Manager's view of the software via the ManagerGui
+		
+		Second we will do a system test of a potential customer's view of the software via the KioskGui
+		
+		Finally we will do a system test of the Chef's view of the software via the ChefGui
+		
