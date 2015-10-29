@@ -46,8 +46,11 @@ Testing Section 2.
 					The item the manager wishes to delete must be in the list of existing items if he wishes something to happen
 				
 			6. The manager must then set a special for the day.
-				The standard input for seting a special for the day is : Name,Menu Name (For example "Chesse,Pizza")
-			
+				The standard input for seting a special for the day is : Name,Menu Name (For example "Cheese,Pizza")
+				To accomplish this, the manager types into the text box at the top left of the application and then hits the set special button
+					The item the manager wishes to make the special must be included in the menu if he wants anything to happen
+					
+					
 		Second we will do a system test of a potential customer's view of the software via the KioskGui
 		
 		Finally we will do a system test of the Chef's view of the software via the ChefGui
