@@ -75,7 +75,7 @@ public class ChefGUI {
         JButton btnCompleteOrder = new JButton("Complete Order");
         btnCompleteOrder.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                txtOrders.setText(" ");
+                textArea.setText(" ");
                 system.completeNextOrder();
             }
         });
