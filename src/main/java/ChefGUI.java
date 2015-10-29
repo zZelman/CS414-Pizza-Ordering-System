@@ -86,7 +86,7 @@ public class ChefGUI {
         JButton btnNewButton = new JButton("Get Order");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                txtOrders.setText(AtoS(system.viewNextOrder()));
+                textArea.setText(AtoS(system.viewNextOrder()));
             }
         });
         btnNewButton.setBounds(10, 417, 330, 33);
