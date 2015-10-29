@@ -1,4 +1,17 @@
-The idea we will be going with moving forward is test first development (We technically started with all of our diagramming and SSD's).
-We will be making tests for all basic logic functions which include all branches of the logic,
-Then we will boundary test each function in order to assure that is only accepts logical input and properly handles what happens when it does not receive proper input
-After it passes that, we will be doing generic system functionality tests in order to ensure that the entire system is working as intended
+After diagramming has been completed, we elected to go with a test first development methodology.
+The fundamental ideology is to begin with unit tests.
+	These tests will ensure basic logical soundness of all branches of the code.
+	We will also endeavour to make sure the inputs are sanity tested with boundary tests, which have the purpose of accepting sane inputs and being capable of dealing with edge cases.
+	These will be covered in the testing section 1.
+After unit tests have been completed, the next task is to ensure the system functions properly with system tests.
+	The ideology behind these tests is so ensure that the system in its entirety is functioning as expected, producing expected results.
+	These will be covered in the testing section 2.
+	
+
+Testing Section 1.
+	These tests are automated, they will not involve entering in physical input, simply running the JUnit test cases we developed for our software.
+	
+
+Testing Section 2.
+	These test are non-automated, these will involve the tester physically entering the inputs and actually using the software we have developed.
+	
