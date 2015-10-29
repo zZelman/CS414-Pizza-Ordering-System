@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>11</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>638</x>
+      <y>638</y>
+      <w>110</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Customer
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>1045</x>
+      <y>638</y>
+      <w>110</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Cashier
+--
+id</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>462</x>
+      <y>110</y>
+      <w>110</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Manager
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>462</x>
+      <y>451</y>
+      <w>110</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Chef
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>759</x>
+      <y>451</y>
+      <w>143</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Sale
+--
+dateTime
+/ amountTendered</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>1023</x>
+      <y>110</y>
+      <w>110</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Store
+--
+name
+address</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>770</x>
+      <y>110</y>
+      <w>110</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Menu
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>836</x>
+      <y>638</y>
+      <w>110</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Kiosk
+--
+id</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>792</x>
+      <y>275</y>
+      <w>110</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>Item
+--
+id
+price
+isSpecial</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>539</x>
+      <y>264</y>
+      <w>154</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Item Description
+--
+description
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>429</x>
+      <y>638</y>
+      <w>132</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Payment
+--
+amountTendered</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>979</x>
+      <y>308</y>
+      <w>110</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Ledger
+--
+completed</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>528</x>
+      <y>484</y>
+      <w>252</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+Paid-by</panel_attributes>
+    <additional_attributes>33;154;231;33</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>671</x>
+      <y>484</y>
+      <w>153</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+Is-for</panel_attributes>
+    <additional_attributes>33;154;132;33</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>913</x>
+      <y>616</y>
+      <w>153</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1
+Works-on</panel_attributes>
+    <additional_attributes>132;55;33;55</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>792</x>
+      <y>484</y>
+      <w>149</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..*
+Captured-on</panel_attributes>
+    <additional_attributes>99;154;66;33</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>858</x>
+      <y>341</y>
+      <w>171</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+Logs-completed</panel_attributes>
+    <additional_attributes>143;33;44;154</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>946</x>
+      <y>143</y>
+      <w>219</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+Records-accounts-for</panel_attributes>
+    <additional_attributes>143;33;88;165</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>869</x>
+      <y>143</y>
+      <w>186</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1
+Stocks</panel_attributes>
+    <additional_attributes>33;132;165;33</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>660</x>
+      <y>253</y>
+      <w>153</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+Describes</panel_attributes>
+    <additional_attributes>33;55;132;55</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>847</x>
+      <y>88</y>
+      <w>197</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+Displays</panel_attributes>
+    <additional_attributes>33;55;176;55</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>539</x>
+      <y>429</y>
+      <w>241</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..*
+Completes</panel_attributes>
+    <additional_attributes>220;55;33;55</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>539</x>
+      <y>88</y>
+      <w>252</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..*
+Sets-information</panel_attributes>
+    <additional_attributes>231;55;33;55</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>759</x>
+      <y>319</y>
+      <w>153</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..*
+Sells</panel_attributes>
+    <additional_attributes>33;132;132;33</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>715</x>
+      <y>616</y>
+      <w>142</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1
+Works-on</panel_attributes>
+    <additional_attributes>33;55;121;55</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>528</x>
+      <y>616</y>
+      <w>131</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+MadeBy</panel_attributes>
+    <additional_attributes>110;55;33;55</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>781</x>
+      <y>143</y>
+      <w>125</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1
+Contains</panel_attributes>
+    <additional_attributes>99;132;44;33</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>429</x>
+      <y>165</y>
+      <w>99</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>13.0;109.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>385</x>
+      <y>286</y>
+      <w>110</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Employee
+--
+id</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>429</x>
+      <y>341</y>
+      <w>77</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>484</x>
+      <y>704</y>
+      <w>33</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=.()
+bg=black</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>451</x>
+      <y>759</y>
+      <w>99</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>bg=blue
+Cash Only</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
