@@ -51,9 +51,13 @@ public class ManagerGui {
     
     private String AtoS(ArrayList<String> a) {
         String list = "";
-        for (String s : a) {
-            list += s + "\n";
-        }
+		if(a != null){
+			
+			for (String s : a) {
+				list += s + "\n";
+			}
+			
+		}
         return list;
     }
     
