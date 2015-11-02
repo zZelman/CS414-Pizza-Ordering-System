@@ -24,7 +24,7 @@ task chef(type: JavaExec) {
 }
 
 task demo(type: JavaExec) {
-    main = "Runner"
+    main = "main.Runner"
            classpath = sourceSets.main.runtimeClasspath
 }
 
