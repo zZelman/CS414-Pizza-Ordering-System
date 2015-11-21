@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 
+import java.rmi.Naming;
+
 public class KioskGUI {
 
     public JFrame frmKiosk;
@@ -21,7 +23,7 @@ public class KioskGUI {
     private JTextField txtYourOrder;
     private JTextField textField;
     private JTextField txtYourPaymentInformation;
-    private PizzaSystem system;
+    private SystemAccess system;
     DefaultListModel model;
     DefaultListModel model2;
     
@@ -36,8 +38,7 @@ public class KioskGUI {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    PizzaSystem ps = new PizzaSystem();
-                    KioskGUI window = new KioskGUI(ps);
+                    KioskGUI window = new KioskGUI();
                     window.frmKiosk.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -49,8 +50,8 @@ public class KioskGUI {
     /**
         Create the application.
     */
-    public KioskGUI(PizzaSystem system) {
-        this.system = system;
+    public KioskGUI() throws Exception {
+        this.system = (SystemAccess) Naming.lookup("//localhost/server");
         initialize();
     }
     
@@ -58,23 +59,27 @@ public class KioskGUI {
         if (model2.getSize() > 0) {
             model2.removeAllElements();
         }
-        ArrayList<String> names = system.getSaleItemNames();
-        for (String s : names) {
-            model2.addElement(s);
-        }
-        textField_1.setText("Sale Cost : " + system.getSaleTotal());
+        try {
+            ArrayList<String> names = system.getSaleItemNames();
+            for (String s : names) {
+                model2.addElement(s);
+            }
+            textField_1.setText("Sale Cost : " + system.getSaleTotal());
+        } catch (Exception q) {}
     }
     
     public void buildMenu() {
-        ArrayList<String> m = system.getMenuNames();
-        ArrayList<String> i = system.getMenuItems(m.get(0));
-        String Special = system.getMenuSpecial(m.get(0));
-        if (Special != null) {
-            model.addElement("Today's Special is : " + Special);
-        }
-        for (String t : i) {
-            model.addElement(t);
-        }
+        try {
+            ArrayList<String> m = system.getMenuNames();
+            ArrayList<String> i = system.getMenuItems(m.get(0));
+            String Special = system.getMenuSpecial(m.get(0));
+            if (Special != null) {
+                model.addElement("Today's Special is : " + Special);
+            }
+            for (String t : i) {
+                model.addElement(t);
+            }
+        } catch (Exception q) {}
     }
     
     /**
@@ -137,9 +142,11 @@ public class KioskGUI {
         JButton btnNewButton_1 = new JButton("Start a Transaction");
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                system.beginSale();
+                try {
+                    system.beginSale();
+                } catch (Exception q) {}
                 //TODO: make work with new server
-                //this is where the new commands go  
+                //this is where the new commands go
             }
         });
         btnNewButton_1.setBounds(10, 11, 664, 46);
@@ -149,10 +156,12 @@ public class KioskGUI {
         JButton btnAddToOrder = new JButton("Add to Order");
         btnAddToOrder.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                system.addItemToSale((String) menu.getSelectedValue());
+                try {
+                    system.addItemToSale((String) menu.getSelectedValue());
+                } catch (Exception q) {}
                 buildOrder();
                 //TODO: make work with new server
-                //this is where the new commands go  
+                //this is where the new commands go
             }
         });
         btnAddToOrder.setBounds(10, 369, 122, 23);
@@ -162,13 +171,15 @@ public class KioskGUI {
         JButton btnRemoveFromOrder = new JButton("Remove from Order");
         btnRemoveFromOrder.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-		String s = (String) order.getSelectedValue();
-                boolean b = system.removeItemFromSale((String) order.getSelectedValue());
-		System.out.println("[REMOVE FROM ORDER] " + s + " : " + b);
-                system.removeItemFromSale((String) order.getSelectedValue());
-                buildOrder();
+                try {
+                    String s = (String) order.getSelectedValue();
+                    boolean b = system.removeItemFromSale((String) order.getSelectedValue());
+                    System.out.println("[REMOVE FROM ORDER] " + s + " : " + b);
+                    system.removeItemFromSale((String) order.getSelectedValue());
+                    buildOrder();
+                } catch (Exception q) {}
                 //TODO: make work with new server
-                //this is where the new commands go  
+                //this is where the new commands go
             }
         });
         btnRemoveFromOrder.setBounds(334, 369, 159, 23);
@@ -178,12 +189,14 @@ public class KioskGUI {
         JButton btnNewButton = new JButton("Confirm Order and Payment");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (system.endSale(Double.parseDouble(textField.getText()))) {
-                    model2.removeAllElements();
-                    //TODO: make work with new server
-                    //this is where the new commands go  
-                    // ALSO MAKE THIS CHECK THE DELIVERY AND CALL IT IF IT IS!
-                }
+                try {
+                    if (system.endSale(Double.parseDouble(textField.getText()))) {
+                        model2.removeAllElements();
+                        //TODO: make work with new server
+                        //this is where the new commands go
+                        // ALSO MAKE THIS CHECK THE DELIVERY AND CALL IT IF IT IS!
+                    }
+                } catch (Exception q) {}
                 
             }
         });

@@ -10,11 +10,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
+import java.rmi.Naming;
+
 public class ChefGUI {
 
     public JFrame frmOrdersToCook;
     private JTextField txtOrders;
-    private PizzaSystem system;
+    private SystemAccess system;
     
     /**
         Launch the application.
@@ -23,8 +25,7 @@ public class ChefGUI {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    PizzaSystem ps = new PizzaSystem();
-                    ChefGUI window = new ChefGUI(ps);
+                    ChefGUI window = new ChefGUI();
                     window.frmOrdersToCook.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -36,8 +37,8 @@ public class ChefGUI {
     /**
         Create the application.
     */
-    public ChefGUI(PizzaSystem system) {
-        this.system = system;
+    public ChefGUI() throws Exception {
+        this.system = (SystemAccess) Naming.lookup("//localhost/server");
         initialize();
     }
     
@@ -78,7 +79,9 @@ public class ChefGUI {
         btnCompleteOrder.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(" ");
-                system.completeNextOrder();
+                try {
+                    system.completeNextOrder();
+                } catch (Exception q) {}
             }
         });
         btnCompleteOrder.setBounds(350, 416, 324, 35);
@@ -88,7 +91,9 @@ public class ChefGUI {
         JButton btnNewButton = new JButton("Get Order");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                textArea.setText(AtoS(system.viewNextOrder()));
+                try {
+                    textArea.setText(AtoS(system.viewNextOrder()));
+                } catch (Exception q) {}
             }
         });
         btnNewButton.setBounds(10, 417, 330, 33);
