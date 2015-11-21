@@ -17,7 +17,7 @@ public class TestPizzaSystem {
     private Menu m2;
     
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         i1 = new Item("1", "1", 1);
         i2 = new Item("2", "2", 2);
         m1 = new Menu("1", "1");
@@ -25,30 +25,30 @@ public class TestPizzaSystem {
     }
     
     @After
-    public void tearDown() {
+    public void tearDown() throws Exception {
     }
     
     @Test
-    public void testCreateItem() {
+    public void testCreateItem() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
     }
     
     @Test
-    public void testCreateItemBadValues() {
+    public void testCreateItemBadValues() throws Exception {
         ps = new PizzaSystem();
         assertFalse(ps.createItem(null, null, -1));
     }
     
     @Test
-    public void testCreateItemDuplicate() {
+    public void testCreateItemDuplicate() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertFalse(ps.createItem("1", "1", 1));
     }
     
     @Test
-    public void testDeleteItem() {
+    public void testDeleteItem() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         
@@ -56,7 +56,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testDeleteItemBadValues() {
+    public void testDeleteItemBadValues() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         
@@ -64,13 +64,13 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testDeleteItemNoExist() {
+    public void testDeleteItemNoExist() throws Exception {
         ps = new PizzaSystem();
         assertFalse(ps.deleteItem("2"));
     }
     
     @Test
-    public void testGetItemNames() {
+    public void testGetItemNames() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         
@@ -82,7 +82,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testGetMenuNames() {
+    public void testGetMenuNames() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -96,7 +96,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testGetMenuItems() {
+    public void testGetMenuItems() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -110,7 +110,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testGetMenuItemsBadValues() {
+    public void testGetMenuItemsBadValues() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -121,7 +121,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testGetMenuItemsNoExist() {
+    public void testGetMenuItemsNoExist() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createMenu("1", "1"));
         
@@ -130,7 +130,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testSaleItemNames() {
+    public void testSaleItemNames() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -147,7 +147,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testSaleItemNamesNotActive() {
+    public void testSaleItemNamesNotActive() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -158,26 +158,26 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testCreateMenu() {
+    public void testCreateMenu() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createMenu("1", "1"));
     }
     
     @Test
-    public void testCreateMenuBadValues() {
+    public void testCreateMenuBadValues() throws Exception {
         ps = new PizzaSystem();
         assertFalse(ps.createMenu(null, null));
     }
     
     @Test
-    public void testCreateMenuDuplicate() {
+    public void testCreateMenuDuplicate() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createMenu("1", "1"));
         assertFalse(ps.createMenu("1", "1"));
     }
     
     @Test
-    public void testAddItemToMenu() {
+    public void testAddItemToMenu() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -185,7 +185,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testAddItemToMenuItemNoExist() {
+    public void testAddItemToMenuItemNoExist() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -193,7 +193,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testAddItemToMenuMenuNoExist() {
+    public void testAddItemToMenuMenuNoExist() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -201,7 +201,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testAddItemToMenuDuplicate() {
+    public void testAddItemToMenuDuplicate() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -210,7 +210,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testSetMenuSpecial() {
+    public void testSetMenuSpecial() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -220,7 +220,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testSetMenuSpecialItemNoExist() {
+    public void testSetMenuSpecialItemNoExist() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -230,7 +230,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testSetMenuSpecialMenuNoExist() {
+    public void testSetMenuSpecialMenuNoExist() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -240,7 +240,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testSetMenuSpecialItemNotContained() {
+    public void testSetMenuSpecialItemNotContained() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -249,7 +249,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testGetMenuSpecial() {
+    public void testGetMenuSpecial() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -260,7 +260,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testGetMenuSpecialBadValues() {
+    public void testGetMenuSpecialBadValues() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -271,7 +271,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testGetMenuSpecialNoSpecial() {
+    public void testGetMenuSpecialNoSpecial() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -281,7 +281,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testRemoveItemFromMenu() {
+    public void testRemoveItemFromMenu() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -291,7 +291,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testRemoveItemFromMenuBadValues() {
+    public void testRemoveItemFromMenuBadValues() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -301,7 +301,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testRemoveItemFromMenuItemNotContained() {
+    public void testRemoveItemFromMenuItemNotContained() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -311,7 +311,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testBeginSale() {
+    public void testBeginSale() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -322,7 +322,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testAddItemToSale() {
+    public void testAddItemToSale() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -333,7 +333,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testAddItemToSaleItemNoExist() {
+    public void testAddItemToSaleItemNoExist() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -344,7 +344,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testRemoveItemFromSale() {
+    public void testRemoveItemFromSale() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -356,7 +356,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testRemoveItemFromSaleItemNoExist() {
+    public void testRemoveItemFromSaleItemNoExist() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -368,7 +368,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testRemoveItemFromSaleItemNotContianed() {
+    public void testRemoveItemFromSaleItemNotContianed() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -379,7 +379,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testGetSaleTotal() {
+    public void testGetSaleTotal() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -391,7 +391,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testEndSale() {
+    public void testEndSale() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -404,7 +404,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testEndSaleToLittlePayment() {
+    public void testEndSaleToLittlePayment() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -416,7 +416,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testViewNextOrder() {
+    public void testViewNextOrder() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -433,7 +433,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testViewNextOrderNoneLeft() {
+    public void testViewNextOrderNoneLeft() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -447,7 +447,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testCompleteNextOrder() {
+    public void testCompleteNextOrder() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
@@ -460,7 +460,7 @@ public class TestPizzaSystem {
     }
     
     @Test
-    public void testCompleteNextOrderNoneLeft() {
+    public void testCompleteNextOrderNoneLeft() throws Exception {
         ps = new PizzaSystem();
         assertTrue(ps.createItem("1", "1", 1));
         assertTrue(ps.createMenu("1", "1"));
