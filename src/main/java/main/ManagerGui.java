@@ -148,8 +148,10 @@ public class ManagerGui {
                 String textFieldValue = textField.getText();
                 if (sanity(textFieldValue, 2)) {
                     String[] s = textFieldValue.split(",");
-                    system.createItem(s[0], s[1], Double.parseDouble(s[2]));
-                    existingItems.setText(AtoS(system.getItemNames()));
+                    try {
+                        system.createItem(s[0], s[1], Double.parseDouble(s[2]));
+                        existingItems.setText(AtoS(system.getItemNames()));
+                    } catch (Exception e) {}
                 }
             }
         });
@@ -162,8 +164,10 @@ public class ManagerGui {
             public void actionPerformed(ActionEvent e) {
                 String textFieldValue = textField.getText();
                 if (textFieldValue.length() > 0) {
-                    system.deleteItem(textFieldValue);
-                    existingItems.setText(AtoS(system.getItemNames()));
+                    try {
+                        system.deleteItem(textFieldValue);
+                        existingItems.setText(AtoS(system.getItemNames()));
+                    } catch (Exception q) {}
                     //TODO: make work with new server
                     //this is where the new commands go
                 }
@@ -179,7 +183,9 @@ public class ManagerGui {
                 String textFieldValue = textField.getText();
                 if (sanity(textFieldValue, 1)) {
                     String[] s = textFieldValue.split(",");
-                    system.createMenu(s[0], s[1]);
+                    try {
+                        system.createMenu(s[0], s[1]);
+                    } catch (Exception q) {}
                     //TODO: make work with new server
                     //this is where the new commands go
                     //also make this update the name of the menu in the top left
@@ -196,8 +202,10 @@ public class ManagerGui {
                 String textFieldValue = textField.getText();
                 if (sanity(textFieldValue, 1)) {
                     String[] s = textFieldValue.split(",");
-                    system.addItemToMenu(s[0], s[1]);
-                    textPane_1.setText(AtoS(system.getMenuItems(s[1])));
+                    try {
+                        system.addItemToMenu(s[0], s[1]);
+                        textPane_1.setText(AtoS(system.getMenuItems(s[1])));
+                    } catch (Exception q) {}
                     //TODO: make work with new server
                     //this is where the new commands go
                 }
@@ -213,8 +221,10 @@ public class ManagerGui {
                 String textFieldValue = textField.getText();
                 if (sanity(textFieldValue, 1)) {
                     String[] s = textFieldValue.split(",");
-                    system.removeItemFromMenu(s[0], s[1]);
-                    textPane_1.setText(AtoS(system.getMenuItems(s[1])));
+                    try {
+                        system.removeItemFromMenu(s[0], s[1]);
+                        textPane_1.setText(AtoS(system.getMenuItems(s[1])));
+                    } catch (Exception q) {}
                     //TODO: make work with new server
                     //this is where the new commands go
                 }
@@ -230,13 +240,15 @@ public class ManagerGui {
                 String textFieldValue = textField.getText();
                 if (sanity(textFieldValue, 1)) {
                     String[] s = textFieldValue.split(",");
-                    if (system.setMenuSpecial(s[0], s[1])) {
-                        frmManagerGui.setVisible(false);
-                        // new KioskGUI(system).frmKiosk.setVisible(true);
-                        // new ChefGUI(system).frmOrdersToCook.setVisible(true);
-                        //TODO: make work with new server
-                        //this is where the new commands go
-                    }
+                    try {
+                        if (system.setMenuSpecial(s[0], s[1])) {
+                            frmManagerGui.setVisible(false);
+                            // new KioskGUI(system).frmKiosk.setVisible(true);
+                            // new ChefGUI(system).frmOrdersToCook.setVisible(true);
+                            //TODO: make work with new server
+                            //this is where the new commands go
+                        }
+                    } catch (Exception q) {}
                 }
                 
             }

@@ -13,13 +13,23 @@ task demo(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
-task RmiServer(type: JavaExec) {
-    main = "RmiServer"
+task Server(type: JavaExec) {
+    main = "main.PizzaSystem"
     classpath = sourceSets.main.runtimeClasspath
 }
 
-task RmiClient(type: JavaExec) {
-    main = "RmiClient"
+task ManagerGUI(type: JavaExec) {
+    main = "main.ManagerGui"
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task KioskGUI(type: JavaExec) {
+    main = "main.KioskGUI"
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task ChefGUI(type: JavaExec) {
+    main = "main.ChefGUI"
     classpath = sourceSets.main.runtimeClasspath
 }
 
