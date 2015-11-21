@@ -13,6 +13,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
+import java.rmi.Naming;
+
 public class ManagerGui {
 
     public JFrame frmManagerGui;
@@ -40,7 +42,7 @@ public class ManagerGui {
     /**
         Create the application.
     */
-    public ManagerGui() {
+    public ManagerGui() throws Exception {
         this.system = (SystemAccess) Naming.lookup("//localhost/server");
         initialize();
     }
@@ -230,8 +232,8 @@ public class ManagerGui {
                     String[] s = textFieldValue.split(",");
                     if (system.setMenuSpecial(s[0], s[1])) {
                         frmManagerGui.setVisible(false);
-                        new KioskGUI(system).frmKiosk.setVisible(true);
-                        new ChefGUI(system).frmOrdersToCook.setVisible(true);
+                        // new KioskGUI(system).frmKiosk.setVisible(true);
+                        // new ChefGUI(system).frmOrdersToCook.setVisible(true);
                         //TODO: make work with new server
                         //this is where the new commands go
                     }
