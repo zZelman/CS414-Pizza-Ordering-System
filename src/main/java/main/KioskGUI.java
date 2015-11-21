@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
 
 public class KioskGUI {
 
@@ -82,7 +83,7 @@ public class KioskGUI {
     private void initialize() {
         frmKiosk = new JFrame();
         frmKiosk.setTitle("Kiosk");
-        frmKiosk.setBounds(100, 100, 700, 500);
+        frmKiosk.setBounds(100, 100, 701, 504);
         frmKiosk.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frmKiosk.getContentPane().setLayout(null);
         
@@ -137,6 +138,8 @@ public class KioskGUI {
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 system.beginSale();
+                //TODO: make work with new server
+                //this is where the new commands go  
             }
         });
         btnNewButton_1.setBounds(10, 11, 664, 46);
@@ -148,6 +151,8 @@ public class KioskGUI {
             public void actionPerformed(ActionEvent e) {
                 system.addItemToSale((String) menu.getSelectedValue());
                 buildOrder();
+                //TODO: make work with new server
+                //this is where the new commands go  
             }
         });
         btnAddToOrder.setBounds(10, 369, 122, 23);
@@ -162,6 +167,8 @@ public class KioskGUI {
 		System.out.println("[REMOVE FROM ORDER] " + s + " : " + b);
                 system.removeItemFromSale((String) order.getSelectedValue());
                 buildOrder();
+                //TODO: make work with new server
+                //this is where the new commands go  
             }
         });
         btnRemoveFromOrder.setBounds(334, 369, 159, 23);
@@ -173,12 +180,19 @@ public class KioskGUI {
             public void actionPerformed(ActionEvent e) {
                 if (system.endSale(Double.parseDouble(textField.getText()))) {
                     model2.removeAllElements();
+                    //TODO: make work with new server
+                    //this is where the new commands go  
+                    // ALSO MAKE THIS CHECK THE DELIVERY AND CALL IT IF IT IS!
                 }
                 
             }
         });
         btnNewButton.setBounds(334, 430, 340, 23);
         frmKiosk.getContentPane().add(btnNewButton);
+        
+        JCheckBox chckbxNewCheckBox = new JCheckBox("Delivery?");
+        chckbxNewCheckBox.setBounds(334, 403, 159, 23);
+        frmKiosk.getContentPane().add(chckbxNewCheckBox);
         
         
         
