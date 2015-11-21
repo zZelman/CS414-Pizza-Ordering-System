@@ -160,6 +160,7 @@ public class KioskGUI {
 		String s = (String) order.getSelectedValue();
                 boolean b = system.removeItemFromSale((String) order.getSelectedValue());
 		System.out.println("[REMOVE FROM ORDER] " + s + " : " + b);
+                system.removeItemFromSale((String) order.getSelectedValue());
                 buildOrder();
             }
         });
