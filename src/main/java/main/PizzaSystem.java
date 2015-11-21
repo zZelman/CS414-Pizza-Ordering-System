@@ -5,15 +5,39 @@ import java.util.Collections;
 import java.util.Stack;
 import java.util.EmptyStackException;
 
-public class PizzaSystem {
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.rmi.registry.*;
+
+public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
+
     private ArrayList<Item> items;
     private ArrayList<Menu> menus;
     private Stack<Sale> cheifOrders;
     private int currentSaleID;
     private Sale currentSale;
-    private Ledger ledger;
+    private Ledger ledger;    
     
-    public PizzaSystem() {
+    public static void main(String args[]) throws Exception {
+        System.out.println("[SERVER] start");
+        
+        try {
+            LocateRegistry.createRegistry(1099);
+            System.out.println("[SERVER] RMI registry created");
+        } catch (RemoteException e) {
+            System.out.println("[SERVER] RMI registry already exists.");
+        }
+        
+        PizzaSystem obj = new PizzaSystem();
+        
+        Naming.rebind("//localhost/server", obj);
+        System.out.println("[SERVER] bound to RMI");
+    }
+    
+    public PizzaSystem() throws RemoteException {
+        super(0);
+        
         this.items = new ArrayList<Item>();
         this.menus = new ArrayList<Menu>();
         this.cheifOrders = new Stack<Sale>();
