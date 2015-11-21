@@ -119,7 +119,7 @@ public class ManagerGui {
         txtpnListOfExisting.setBounds(563, 25, 160, 24);
         frmManagerGui.getContentPane().add(txtpnListOfExisting);
         
-        JTextPane textPane_1 = new JTextPane();
+        final JTextPane textPane_1 = new JTextPane();
         textPane_1.setEditable(false);
         textPane_1.setBounds(28, 56, 512, 503);
         frmManagerGui.getContentPane().add(textPane_1);
@@ -135,7 +135,7 @@ public class ManagerGui {
         frmManagerGui.getContentPane().add(textField);
         textField.setColumns(10);
         
-        JTextArea existingItems = new JTextArea();
+        final JTextArea existingItems = new JTextArea();
         existingItems.setEditable(false);
         existingItems.setBounds(563, 59, 510, 500);
         frmManagerGui.getContentPane().add(existingItems);

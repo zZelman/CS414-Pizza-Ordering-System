@@ -4,7 +4,7 @@ import java.awt.EventQueue;
 
 public class Runner {
     public static void main(String[] args) {
-        PizzaSystem system = new PizzaSystem();
+        final PizzaSystem system = new PizzaSystem();
         
         EventQueue.invokeLater(new Runnable() {
             public void run() {

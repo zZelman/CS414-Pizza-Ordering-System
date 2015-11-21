@@ -62,7 +62,7 @@ public class ChefGUI {
         frmOrdersToCook.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frmOrdersToCook.getContentPane().setLayout(null);
         
-        JTextArea textArea = new JTextArea();
+        final JTextArea textArea = new JTextArea();
         textArea.setBounds(10, 42, 664, 359);
         frmOrdersToCook.getContentPane().add(textArea);
         
