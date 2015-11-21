@@ -2,6 +2,17 @@ package main;
 
 import java.awt.EventQueue;
 
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JEditorPane;
+import javax.swing.JTextPane;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+
 public class ManagerGui {
 
     public JFrame frmManagerGui;
@@ -107,7 +118,7 @@ public class ManagerGui {
         txtpnListOfExisting.setBounds(563, 25, 160, 24);
         frmManagerGui.getContentPane().add(txtpnListOfExisting);
         
-        JTextPane textPane_1 = new JTextPane();
+        final JTextPane textPane_1 = new JTextPane();
         textPane_1.setEditable(false);
         textPane_1.setBounds(28, 56, 512, 503);
         frmManagerGui.getContentPane().add(textPane_1);
@@ -123,7 +134,7 @@ public class ManagerGui {
         frmManagerGui.getContentPane().add(textField);
         textField.setColumns(10);
         
-        JTextArea existingItems = new JTextArea();
+        final JTextArea existingItems = new JTextArea();
         existingItems.setEditable(false);
         existingItems.setBounds(563, 59, 510, 500);
         frmManagerGui.getContentPane().add(existingItems);
@@ -245,15 +256,16 @@ public class ManagerGui {
         
         //FREE PIZZA NUMBER
         JButton btnFreePizzaNumber = new JButton("Free Pizza Number");
-        btnNewButton_2.addActionListener(new ActionListener() {
+        
+        btnFreePizzaNumber.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             
                 // TODO : have this be the button that pushes and saves the menus and stuffs
                 
             }
         });
-        btnNewButton_2.setBounds(28, 605, 300, 40);
-        frmManagerGui.getContentPane().add(btnNewButton_2);
+        btnFreePizzaNumber.setBounds(28, 605, 300, 40);
+        frmManagerGui.getContentPane().add(btnFreePizzaNumber);
         
         
         
