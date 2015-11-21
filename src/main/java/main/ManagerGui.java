@@ -1,4 +1,4 @@
-package main;
+package cs414.a5.kielh;
 
 import java.awt.EventQueue;
 
@@ -108,7 +108,7 @@ public class ManagerGui {
     private void initialize() {
         frmManagerGui = new JFrame();
         frmManagerGui.setTitle("Manager Gui");
-        frmManagerGui.setBounds(100, 100, 700, 500);
+        frmManagerGui.setBounds(100, 100, 1115, 800);
         frmManagerGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frmManagerGui.getContentPane().setLayout(null);
         
@@ -116,28 +116,28 @@ public class ManagerGui {
         txtpnListOfExisting.setEditable(false);
         txtpnListOfExisting.setFont(new Font("Tahoma", Font.PLAIN, 13));
         txtpnListOfExisting.setText("List of Existing Items");
-        txtpnListOfExisting.setBounds(340, 25, 128, 24);
+        txtpnListOfExisting.setBounds(563, 25, 160, 24);
         frmManagerGui.getContentPane().add(txtpnListOfExisting);
         
         JTextPane textPane_1 = new JTextPane();
         textPane_1.setEditable(false);
-        textPane_1.setBounds(10, 175, 312, 251);
+        textPane_1.setBounds(28, 56, 512, 503);
         frmManagerGui.getContentPane().add(textPane_1);
         
         JTextPane txtpnMenu = new JTextPane();
         txtpnMenu.setEditable(false);
         txtpnMenu.setFont(new Font("Tahoma", Font.PLAIN, 13));
-        txtpnMenu.setBounds(10, 154, 312, 20);
+        txtpnMenu.setBounds(28, 25, 160, 20);
         frmManagerGui.getContentPane().add(txtpnMenu);
         
         textField = new JTextField();
-        textField.setBounds(10, 25, 312, 24);
+        textField.setBounds(399, 597, 300, 24);
         frmManagerGui.getContentPane().add(textField);
         textField.setColumns(10);
         
         JTextArea existingItems = new JTextArea();
         existingItems.setEditable(false);
-        existingItems.setBounds(340, 59, 322, 367);
+        existingItems.setBounds(563, 59, 510, 500);
         frmManagerGui.getContentPane().add(existingItems);
         
         //CREATE ITEM
@@ -152,7 +152,7 @@ public class ManagerGui {
                 }
             }
         });
-        btnCreateItem.setBounds(10, 60, 148, 23);
+        btnCreateItem.setBounds(773, 656, 300, 40);
         frmManagerGui.getContentPane().add(btnCreateItem);
         
         //DELETE ITEM
@@ -163,10 +163,12 @@ public class ManagerGui {
                 if (textFieldValue.length() > 0) {
                     system.deleteItem(textFieldValue);
                     existingItems.setText(AtoS(system.getItemNames()));
+                    //TODO: make work with new server
+                    //this is where the new commands go     
                 }
             }
         });
-        btnDeleteItem.setBounds(10, 89, 148, 23);
+        btnDeleteItem.setBounds(399, 656, 300, 40);
         frmManagerGui.getContentPane().add(btnDeleteItem);
         
         //CREATE MENU
@@ -177,10 +179,13 @@ public class ManagerGui {
                 if (sanity(textFieldValue, 1)) {
                     String[] s = textFieldValue.split(",");
                     system.createMenu(s[0], s[1]);
+                    //TODO: make work with new server
+                    //this is where the new commands go
+                    //also make this update the name of the menu in the top left
                 }
             }
         });
-        btnNewButton_1.setBounds(168, 60, 154, 23);
+        btnNewButton_1.setBounds(28, 656, 300, 40);
         frmManagerGui.getContentPane().add(btnNewButton_1);
         
         //ADD TO MENU
@@ -192,10 +197,12 @@ public class ManagerGui {
                     String[] s = textFieldValue.split(",");
                     system.addItemToMenu(s[0], s[1]);
                     textPane_1.setText(AtoS(system.getMenuItems(s[1])));
+                    //TODO: make work with new server
+                    //this is where the new commands go
                 }
             }
         });
-        btnAddItemTo.setBounds(168, 120, 154, 23);
+        btnAddItemTo.setBounds(28, 707, 300, 40);
         frmManagerGui.getContentPane().add(btnAddItemTo);
         
         //REMOVE FROM MENU
@@ -207,10 +214,12 @@ public class ManagerGui {
                     String[] s = textFieldValue.split(",");
                     system.removeItemFromMenu(s[0], s[1]);
                     textPane_1.setText(AtoS(system.getMenuItems(s[1])));
+                    //TODO: make work with new server
+                    //this is where the new commands go                    
                 }
             }
         });
-        btnNewButton.setBounds(168, 89, 154, 23);
+        btnNewButton.setBounds(399, 707, 300, 40);
         frmManagerGui.getContentPane().add(btnNewButton);
         
         //SET SPECIAL
@@ -224,13 +233,26 @@ public class ManagerGui {
                         frmManagerGui.setVisible(false);
                         new KioskGUI(system).frmKiosk.setVisible(true);
                         new ChefGUI(system).frmOrdersToCook.setVisible(true);
+                        //TODO: make work with new server
+                        //this is where the new commands go
                     }
                 }
                 
             }
         });
-        btnSetSpecial.setBounds(10, 120, 148, 23);
+        btnSetSpecial.setBounds(773, 707, 300, 40);
         frmManagerGui.getContentPane().add(btnSetSpecial);
+        
+        JButton btnFinished = new JButton("Finished");
+        btnFinished.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		
+        		// TODO : have this be the button that pushes and saves the menus and stuffs
+        		
+        	}
+        });
+        btnFinished.setBounds(773, 605, 300, 40);
+        frmManagerGui.getContentPane().add(btnFinished);
         
         
         
