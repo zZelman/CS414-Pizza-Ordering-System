@@ -8,22 +8,29 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-task manager(type:JavaExec) {
+task manager(type: JavaExec) {
     main = "ManagerGui"
-    classpath = sourceSets.main.runtimeClasspath
+           classpath = sourceSets.main.runtimeClasspath
 }
 
-task kiosk(type:JavaExec) {
+task kiosk(type: JavaExec) {
     main = "KioskGUI"
-    classpath = sourceSets.main.runtimeClasspath
+           classpath = sourceSets.main.runtimeClasspath
 }
 
-task chef(type:JavaExec) {
+task chef(type: JavaExec) {
     main = "ChefGUI"
-    classpath = sourceSets.main.runtimeClasspath
+           classpath = sourceSets.main.runtimeClasspath
 }
 
-task demo(type:JavaExec) {
-    main = "Runner"
-    classpath = sourceSets.main.runtimeClasspath
+task demo(type: JavaExec) {
+    main = "main.Runner"
+           classpath = sourceSets.main.runtimeClasspath
+}
+
+jar {
+    manifest {
+    attributes  'Implementation-Title': 'CS414-Pizza-Ordering-System',
+                'Implementation-Version': '1.0'
+    }
 }
