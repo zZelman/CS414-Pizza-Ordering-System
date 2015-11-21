@@ -6,7 +6,7 @@ public class ManagerGui {
 
     public JFrame frmManagerGui;
     private JTextField textField;
-    private PizzaSystem system;
+    private SystemAccess system;
     JTextPane textPane_1;
     JTextArea existingItems;
     
@@ -17,8 +17,7 @@ public class ManagerGui {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    PizzaSystem ps = new PizzaSystem();
-                    ManagerGui window = new ManagerGui(ps);
+                    ManagerGui window = new ManagerGui();
                     window.frmManagerGui.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -30,8 +29,8 @@ public class ManagerGui {
     /**
         Create the application.
     */
-    public ManagerGui(PizzaSystem system) {
-        this.system = system;
+    public ManagerGui() {
+        this.system = (SystemAccess) Naming.lookup("//localhost/server");
         initialize();
     }
     
@@ -153,7 +152,7 @@ public class ManagerGui {
                     system.deleteItem(textFieldValue);
                     existingItems.setText(AtoS(system.getItemNames()));
                     //TODO: make work with new server
-                    //this is where the new commands go     
+                    //this is where the new commands go
                 }
             }
         });
@@ -204,7 +203,7 @@ public class ManagerGui {
                     system.removeItemFromMenu(s[0], s[1]);
                     textPane_1.setText(AtoS(system.getMenuItems(s[1])));
                     //TODO: make work with new server
-                    //this is where the new commands go                    
+                    //this is where the new commands go
                 }
             }
         });
@@ -235,11 +234,11 @@ public class ManagerGui {
         //FINISHED BUTTON
         JButton btnFinished = new JButton("Finished");
         btnFinished.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        		
-        		// TODO : have this be the button that pushes and saves the menus and stuffs
-        		
-        	}
+            public void actionPerformed(ActionEvent arg0) {
+            
+                // TODO : have this be the button that pushes and saves the menus and stuffs
+                
+            }
         });
         btnFinished.setBounds(773, 605, 300, 40);
         frmManagerGui.getContentPane().add(btnFinished);
@@ -247,11 +246,11 @@ public class ManagerGui {
         //FREE PIZZA NUMBER
         JButton btnFreePizzaNumber = new JButton("Free Pizza Number");
         btnNewButton_2.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		
-        		// TODO : have this be the button that pushes and saves the menus and stuffs
-        		
-        	}
+            public void actionPerformed(ActionEvent e) {
+            
+                // TODO : have this be the button that pushes and saves the menus and stuffs
+                
+            }
         });
         btnNewButton_2.setBounds(28, 605, 300, 40);
         frmManagerGui.getContentPane().add(btnNewButton_2);
