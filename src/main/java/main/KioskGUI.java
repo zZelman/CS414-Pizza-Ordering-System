@@ -157,7 +157,9 @@ public class KioskGUI {
         JButton btnRemoveFromOrder = new JButton("Remove from Order");
         btnRemoveFromOrder.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                system.removeItemFromSale((String) menu.getSelectedValue());
+		String s = (String) order.getSelectedValue();
+                boolean b = system.removeItemFromSale((String) order.getSelectedValue());
+		System.out.println("[REMOVE FROM ORDER] " + s + " : " + b);
                 buildOrder();
             }
         });
