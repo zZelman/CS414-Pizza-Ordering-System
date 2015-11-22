@@ -221,7 +221,9 @@ public class KioskGUI {
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-
+                    if(system.getSaleIsDelvery()){
+                        system.setSaleIsDelvery(false);
+                    }
                     if (system.endSale(Double.parseDouble(textField.getText()))) {
                         model2.removeAllElements();
                         //TODO: make work with new server
