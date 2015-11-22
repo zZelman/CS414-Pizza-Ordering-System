@@ -526,7 +526,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
         @return true if the payment >= required
                 false if < required or sale not active
     */
-    public boolean endSale(double payment) {
+    public boolean endSale(String customerID, double payment) {
         if (!this.isSaleActive()) {
             return false;
         }
@@ -536,6 +536,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
             // this.cheifOrders.push(this.currentSale);
             try {
                 this.cheifOrders.put(this.currentSale);
+		this.incrementCustomer(customerID, (int) payment);
             } catch (Exception e) {}
             this.currentSale = null;
             this.currentSaleID++;
