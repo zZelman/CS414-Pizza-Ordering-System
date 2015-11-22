@@ -260,6 +260,9 @@ public class KioskGUI {
 
                     if (system.endSale(CustID.getText(), Double.parseDouble(textField.getText()))) {
                         model2.removeAllElements();
+                        CustID.setText("");
+                        address.setText("");
+                        textField.setText("");
                         //TODO: make work with new server
                         //this is where the new commands go
                         // ALSO MAKE THIS CHECK THE DELIVERY AND CALL IT IF IT IS!
