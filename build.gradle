@@ -33,6 +33,11 @@ task ChefGUI(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
+task DeliveryGUI(type: JavaExec) {
+    main = "main.DeliveryGUI"
+    classpath = sourceSets.main.runtimeClasspath
+}
+
 jar {
     manifest {
         attributes  'Implementation-Title': 'CS414-Pizza-Ordering-System',

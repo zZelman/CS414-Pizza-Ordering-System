@@ -25,7 +25,7 @@ public class DeliveryGUI {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    ChefGUI window = new ChefGUI();
+                    DeliveryGUI window = new DeliveryGUI();
                     window.frmOrdersToCook.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
