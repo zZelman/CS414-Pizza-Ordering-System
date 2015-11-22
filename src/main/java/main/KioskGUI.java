@@ -15,6 +15,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 
 import java.rmi.Naming;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class KioskGUI {
 
@@ -32,6 +34,7 @@ public class KioskGUI {
     private JTextField textField_1;
     private JTextField CustID;
     private JTextField CustIdTitle;
+    private JTextField address;
 
     /**
      Launch the application.
@@ -151,6 +154,14 @@ public class KioskGUI {
         frmKiosk.getContentPane().add(CustIdTitle);
         CustIdTitle.setColumns(10);
 
+        address = new JTextField();
+        address.setBounds(410, 404, 264, 20);
+        frmKiosk.getContentPane().add(address);
+        address.setColumns(10);
+
+
+
+
 
         buildMenu();
 
@@ -210,11 +221,13 @@ public class KioskGUI {
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
+
                     if (system.endSale(Double.parseDouble(textField.getText()))) {
                         model2.removeAllElements();
                         //TODO: make work with new server
                         //this is where the new commands go
                         // ALSO MAKE THIS CHECK THE DELIVERY AND CALL IT IF IT IS!
+
                     }
                 } catch (Exception q) {
                 }
@@ -224,9 +237,21 @@ public class KioskGUI {
         btnNewButton.setBounds(334, 430, 340, 23);
         frmKiosk.getContentPane().add(btnNewButton);
 
-        JCheckBox chckbxNewCheckBox = new JCheckBox("Delivery?");
-        chckbxNewCheckBox.setBounds(334, 403, 159, 23);
-        frmKiosk.getContentPane().add(chckbxNewCheckBox);
+        JCheckBox box = new JCheckBox("Delivery?");
+        box.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent arg0) {
+                try {
+                    if (address.getText().length() > 1) {
+                        system.setSaleIsDelvery(true);
+                        system.setSaleAddress(address.getText());
+                    }
+
+                } catch (Exception q) {
+                }
+            }
+        });
+        box.setBounds(334, 403, 159, 23);
+        frmKiosk.getContentPane().add(box);
 
 
 
