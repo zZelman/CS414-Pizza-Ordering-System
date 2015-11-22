@@ -271,34 +271,40 @@ public class ManagerGui {
         frmManagerGui.getContentPane().add(btnFinished);
         
         //FREE PIZZA NUMBER
-        JButton btnFreePizzaNumber = new JButton("Free Pizza Number");
+        final JButton btnFreePizzaNumber = new JButton("Free Pizza Number");
         
         btnFreePizzaNumber.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try {
-                } catch (Exception q) {}
-                // TODO : have this be the button that pushes and saves the menus and stuffs
-                
+                String pNumber = textField.getText();
+                if (sanity(pNumber, 1)) {
+                    try {
+                        String pnumber = textField.getText();
+                        system.setMenuFreePizzaNumber(txtpnMenu.getText(), Integer.parseInt(pNumber));
+                        btnFreePizzaNumber.setText("Number Set!");
+                    } catch (Exception q) {
+                    }
+                    // TODO : have this be the button that pushes and saves the menus and stuffs
+                }
             }
         });
         btnFreePizzaNumber.setBounds(28, 605, 300, 40);
         frmManagerGui.getContentPane().add(btnFreePizzaNumber);
-        
+
         JButton btnNewButton_2 = new JButton("Select Menu");
         btnNewButton_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            
+
                 // TODO : Make this set the menu
-                
+
             }
         });
         btnNewButton_2.setBounds(399, 605, 300, 40);
         frmManagerGui.getContentPane().add(btnNewButton_2);
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
     }
 }

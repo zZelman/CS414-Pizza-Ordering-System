@@ -26,14 +26,16 @@ public class KioskGUI {
     private SystemAccess system;
     DefaultListModel model;
     DefaultListModel model2;
-    
+
     JList menu;
     JList order;
     private JTextField textField_1;
-    
+    private JTextField CustID;
+    private JTextField CustIdTitle;
+
     /**
-        Launch the application.
-    */
+     Launch the application.
+     */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -46,15 +48,15 @@ public class KioskGUI {
             }
         });
     }
-    
+
     /**
-        Create the application.
-    */
+     Create the application.
+     */
     public KioskGUI() throws Exception {
         this.system = (SystemAccess) Naming.lookup("//localhost/server");
         initialize();
     }
-    
+
     public void buildOrder() {
         if (model2.getSize() > 0) {
             model2.removeAllElements();
@@ -67,7 +69,7 @@ public class KioskGUI {
             textField_1.setText("Sale Cost : " + system.getSaleTotal());
         } catch (Exception q) {}
     }
-    
+
     public void buildMenu() {
         try {
             ArrayList<String> m = system.getMenuNames();
@@ -81,27 +83,27 @@ public class KioskGUI {
             }
         } catch (Exception q) {}
     }
-    
+
     /**
-        Initialize the contents of the frame.
-    */
+     Initialize the contents of the frame.
+     */
     private void initialize() {
         frmKiosk = new JFrame();
         frmKiosk.setTitle("Kiosk");
         frmKiosk.setBounds(100, 100, 701, 504);
         frmKiosk.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frmKiosk.getContentPane().setLayout(null);
-        
+
         model = new DefaultListModel();
         menu = new JList(model);
         menu.setBounds(10, 100, 277, 258);
         frmKiosk.getContentPane().add(menu);
-        
+
         model2 = new DefaultListModel();
         order = new JList(model2);
         order.setBounds(334, 100, 340, 258);
         frmKiosk.getContentPane().add(order);
-        
+
         txtMenu = new JTextField();
         txtMenu.setEditable(false);
         txtMenu.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -109,7 +111,7 @@ public class KioskGUI {
         txtMenu.setBounds(10, 69, 42, 20);
         frmKiosk.getContentPane().add(txtMenu);
         txtMenu.setColumns(10);
-        
+
         txtYourOrder = new JTextField();
         txtYourOrder.setEditable(false);
         txtYourOrder.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -117,27 +119,41 @@ public class KioskGUI {
         txtYourOrder.setBounds(334, 69, 86, 20);
         frmKiosk.getContentPane().add(txtYourOrder);
         txtYourOrder.setColumns(10);
-        
+
         textField = new JTextField();
         textField.setBounds(10, 431, 315, 20);
         frmKiosk.getContentPane().add(textField);
         textField.setColumns(10);
-        
+
         txtYourPaymentInformation = new JTextField();
         txtYourPaymentInformation.setFont(new Font("Tahoma", Font.PLAIN, 13));
         txtYourPaymentInformation.setText("Payment Amount");
         txtYourPaymentInformation.setBounds(10, 403, 108, 20);
         frmKiosk.getContentPane().add(txtYourPaymentInformation);
         txtYourPaymentInformation.setColumns(10);
-        
+
         textField_1 = new JTextField();
         textField_1.setEditable(false);
         textField_1.setBounds(143, 404, 182, 20);
         frmKiosk.getContentPane().add(textField_1);
         textField_1.setColumns(10);
-        
+
+
+        CustID = new JTextField();
+        CustID.setBounds(10, 37, 264, 20);
+        frmKiosk.getContentPane().add(CustID);
+        CustID.setColumns(10);
+
+        CustIdTitle = new JTextField();
+        CustIdTitle.setText("Input Customer ID");
+        CustIdTitle.setEditable(false);
+        CustIdTitle.setBounds(10, 11, 264, 20);
+        frmKiosk.getContentPane().add(CustIdTitle);
+        CustIdTitle.setColumns(10);
+
+
         buildMenu();
-        
+
         //START A TRANSACTION
         JButton btnNewButton_1 = new JButton("Start a Transaction");
         btnNewButton_1.addActionListener(new ActionListener() {
@@ -145,16 +161,17 @@ public class KioskGUI {
                 try {
                     //----------------------------------------------------------------------------------------
                     // TODO get customer ID and insert it into beginSale();
-                    system.beginSale("1");
+                    String id = CustID.getText();
+                    system.beginSale(id);
                     //----------------------------------------------------------------------------------------
                 } catch (Exception q) {}
                 //TODO: make work with new server
                 //this is where the new commands go
             }
         });
-        btnNewButton_1.setBounds(10, 11, 664, 46);
+        btnNewButton_1.setBounds(284, 11, 390, 46);
         frmKiosk.getContentPane().add(btnNewButton_1);
-        
+
         //ADD TO ORDER
         JButton btnAddToOrder = new JButton("Add to Order");
         btnAddToOrder.addActionListener(new ActionListener() {
@@ -169,7 +186,7 @@ public class KioskGUI {
         });
         btnAddToOrder.setBounds(10, 369, 122, 23);
         frmKiosk.getContentPane().add(btnAddToOrder);
-        
+
         //REMOVE FROM ORDER
         JButton btnRemoveFromOrder = new JButton("Remove from Order");
         btnRemoveFromOrder.addActionListener(new ActionListener() {
@@ -187,7 +204,7 @@ public class KioskGUI {
         });
         btnRemoveFromOrder.setBounds(334, 369, 159, 23);
         frmKiosk.getContentPane().add(btnRemoveFromOrder);
-        
+
         //CONFIRM ORDER AND PAYMENT
         JButton btnNewButton = new JButton("Confirm Order and Payment");
         btnNewButton.addActionListener(new ActionListener() {
@@ -199,18 +216,20 @@ public class KioskGUI {
                         //this is where the new commands go
                         // ALSO MAKE THIS CHECK THE DELIVERY AND CALL IT IF IT IS!
                     }
-                } catch (Exception q) {}
-                
+                } catch (Exception q) {
+                }
+
             }
         });
         btnNewButton.setBounds(334, 430, 340, 23);
         frmKiosk.getContentPane().add(btnNewButton);
-        
+
         JCheckBox chckbxNewCheckBox = new JCheckBox("Delivery?");
         chckbxNewCheckBox.setBounds(334, 403, 159, 23);
         frmKiosk.getContentPane().add(chckbxNewCheckBox);
-        
-        
-        
+
+
+
+
     }
 }
