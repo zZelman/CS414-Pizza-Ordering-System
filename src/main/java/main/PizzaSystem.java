@@ -17,7 +17,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
     private Stack<Sale> cheifOrders;
     private int currentSaleID;
     private Sale currentSale;
-    private Ledger ledger;    
+    private Ledger ledger;
     
     public static void main(String args[]) throws Exception {
         System.out.println("[SERVER] start");
