@@ -1,52 +1,66 @@
 package com.example.kiel.androidui;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ListView;
 
-public class Kiosk extends AppCompatActivity {
+public class Kiosk extends AppCompatActivity implements View.OnClickListener {
+    private Button startTransaction;
+    private EditText customerID;
+    private ListView menuItems;
+    private ListView totalItems;
+    private Button addItem;
+    private Button removeItem;
+    private EditText paymentField;
+    private Button payButton;
+    private CheckBox deliveryCheckbox;
+    private EditText addressField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kiosk);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.content_kiosk);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        findViews();
+    }
+
+    private void findViews() {
+        startTransaction = (Button)findViewById( R.id.startTransaction );
+        customerID = (EditText)findViewById( R.id.customerID );
+        menuItems = (ListView)findViewById( R.id.menuItems );
+        totalItems = (ListView)findViewById( R.id.totalItems );
+        addItem = (Button)findViewById( R.id.addItem );
+        removeItem = (Button)findViewById( R.id.removeItem );
+        paymentField = (EditText)findViewById( R.id.paymentField );
+        payButton = (Button)findViewById( R.id.payButton );
+        deliveryCheckbox = (CheckBox)findViewById( R.id.deliveryCheckbox );
+        addressField = (EditText)findViewById( R.id.addressField );
+
+        startTransaction.setOnClickListener( this );
+        addItem.setOnClickListener( this );
+        removeItem.setOnClickListener( this );
+        payButton.setOnClickListener( this );
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_kiosk, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    public void onClick(View v) {
+        if ( v == startTransaction ) {
+            // Handle clicks for startTransaction
+            System.out.println("startTransaction");
+        } else if ( v == addItem ) {
+            // Handle clicks for addItem
+            System.out.println("addItem");
+        } else if ( v == removeItem ) {
+            // Handle clicks for removeItem
+            System.out.println("removeItem");
+        } else if ( v == payButton ) {
+            // Handle clicks for payButton
+            System.out.println("payButton");
         }
-
-        return super.onOptionsItemSelected(item);
     }
+
 }
