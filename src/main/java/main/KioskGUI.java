@@ -35,6 +35,7 @@ public class KioskGUI {
     private JTextField CustID;
     private JTextField CustIdTitle;
     private JTextField address;
+    private JTextField txtAddress;
 
     /**
      Launch the application.
@@ -155,9 +156,17 @@ public class KioskGUI {
         CustIdTitle.setColumns(10);
 
         address = new JTextField();
-        address.setBounds(410, 404, 264, 20);
+        address.setBounds(334, 404, 244, 20);
         frmKiosk.getContentPane().add(address);
         address.setColumns(10);
+
+
+        txtAddress = new JTextField();
+        txtAddress.setEditable(false);
+        txtAddress.setText("Address");
+        txtAddress.setBounds(334, 383, 86, 20);
+        frmKiosk.getContentPane().add(txtAddress);
+        txtAddress.setColumns(10);
 
 
 
@@ -175,7 +184,8 @@ public class KioskGUI {
                     String id = CustID.getText();
                     system.beginSale(id);
                     //----------------------------------------------------------------------------------------
-                } catch (Exception q) {}
+                } catch (Exception q) {
+                }
                 //TODO: make work with new server
                 //this is where the new commands go
             }
@@ -213,17 +223,41 @@ public class KioskGUI {
                 //this is where the new commands go
             }
         });
-        btnRemoveFromOrder.setBounds(334, 369, 159, 23);
+        btnRemoveFromOrder.setBounds(515, 370, 159, 23);
         frmKiosk.getContentPane().add(btnRemoveFromOrder);
+
+        final JCheckBox box = new JCheckBox("Delivery?");
+
+        box.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent arg0) {
+                /*
+                try {
+                    if (address.getText().length() > 1) {
+                        system.setSaleIsDelvery(true);
+                        system.setSaleAddress(address.getText());
+                    }
+
+                } catch (Exception q) {
+                }
+                */
+            }
+        });
+        box.setBounds(588, 403, 86, 23);
+        frmKiosk.getContentPane().add(box);
 
         //CONFIRM ORDER AND PAYMENT
         JButton btnNewButton = new JButton("Confirm Order and Payment");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if(system.getSaleIsDelvery()){
+                    if (box.isSelected()) {
+                        system.setSaleIsDelvery(true);
+                        system.setSaleAddress(address.getText());
+                    } else {
                         system.setSaleIsDelvery(false);
                     }
+
+
                     if (system.endSale(CustID.getText(), Double.parseDouble(textField.getText()))) {
                         model2.removeAllElements();
                         //TODO: make work with new server
@@ -239,21 +273,6 @@ public class KioskGUI {
         btnNewButton.setBounds(334, 430, 340, 23);
         frmKiosk.getContentPane().add(btnNewButton);
 
-        JCheckBox box = new JCheckBox("Delivery?");
-        box.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent arg0) {
-                try {
-                    if (address.getText().length() > 1) {
-                        system.setSaleIsDelvery(true);
-                        system.setSaleAddress(address.getText());
-                    }
-
-                } catch (Exception q) {
-                }
-            }
-        });
-        box.setBounds(334, 403, 159, 23);
-        frmKiosk.getContentPane().add(box);
 
 
 
