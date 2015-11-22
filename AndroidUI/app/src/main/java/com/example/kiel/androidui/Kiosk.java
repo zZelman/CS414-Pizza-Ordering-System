@@ -8,6 +8,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import java.rmi.Naming;
+
+import main.SystemAccess;
+
 public class Kiosk extends AppCompatActivity implements View.OnClickListener {
     private Button startTransaction;
     private EditText customerID;
@@ -20,10 +24,14 @@ public class Kiosk extends AppCompatActivity implements View.OnClickListener {
     private CheckBox deliveryCheckbox;
     private EditText addressField;
 
+    private SystemAccess system;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_kiosk);
+
+        system = (SystemAccess) Naming.lookup("//localhost/server");
 
         findViews();
     }

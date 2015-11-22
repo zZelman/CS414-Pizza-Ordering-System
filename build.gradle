@@ -9,7 +9,7 @@ dependencies {
 }
 
 task Playground(type: JavaExec) {
-    main = "Playground"
+    main = "main.Playground"
     classpath = sourceSets.main.runtimeClasspath
 }
 
