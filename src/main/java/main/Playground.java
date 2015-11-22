@@ -33,6 +33,16 @@ public class Playground extends JPanel {
     public static void init(JFrame f) throws Exception {
         f.setTitle("Android Kiosk");
         final SystemAccess system = (SystemAccess) Naming.lookup("//localhost/server");
+
+	int x = 2000;
+	int y = 1700;
+	int w = 0;
+	int h = 0;
+
+	int x1 = 20;
+	int y1 = 170;
+	int w1 = 0;
+	int h1 = 0;
         
         // final JTextField txtMenu;
         // final JTextField txtYourOrder;
@@ -49,25 +59,25 @@ public class Playground extends JPanel {
         // final JTextField address;
         // final JTextField txtAddress;
         
-        f.setBounds(100, 100, 701, 504);
+        f.setBounds(100, 100, 450, 791);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //f.getContentPane().setLayout(null);
         
         final DefaultListModel model = new DefaultListModel();
         final JList menu = new JList(model);
-        menu.setBounds(10, 100, 277, 258);
+        menu.setBounds(10+x1, 100+y1, 277-120, 258);
         f.getContentPane().add(menu);
         
         final DefaultListModel model2 = new DefaultListModel();
         final JList order = new JList(model2);
-        order.setBounds(334, 100, 340, 258);
+        order.setBounds(334+x1-150, 100+y1, 340-170, 258);
         f.getContentPane().add(order);
         
         final JTextField txtMenu = new JTextField();
         txtMenu.setEditable(false);
         txtMenu.setFont(new Font("Tahoma", Font.PLAIN, 13));
         txtMenu.setText("Menu");
-        txtMenu.setBounds(10, 69, 42, 20);
+        txtMenu.setBounds(10+x1, 69+y1, 42, 20);
         f.getContentPane().add(txtMenu);
         txtMenu.setColumns(10);
         
@@ -75,43 +85,43 @@ public class Playground extends JPanel {
         txtYourOrder.setEditable(false);
         txtYourOrder.setFont(new Font("Tahoma", Font.PLAIN, 13));
         txtYourOrder.setText("Your Order");
-        txtYourOrder.setBounds(334, 69, 86, 20);
+        txtYourOrder.setBounds(334+x1-150, 69+y1, 86, 20);
         f.getContentPane().add(txtYourOrder);
         txtYourOrder.setColumns(10);
         
         final JTextField textField = new JTextField();
-        textField.setBounds(10, 431, 315, 20);
+        textField.setBounds(10+x1, 431+y1+20, 315-170, 20);
         f.getContentPane().add(textField);
         textField.setColumns(10);
         
         final JTextField txtYourPaymentInformation = new JTextField();
         txtYourPaymentInformation.setFont(new Font("Tahoma", Font.PLAIN, 13));
         txtYourPaymentInformation.setText("Payment Amount");
-        txtYourPaymentInformation.setBounds(10, 403, 108, 20);
+        txtYourPaymentInformation.setBounds(10+x1, 403+y1+20-25, 120, 20);
         f.getContentPane().add(txtYourPaymentInformation);
         txtYourPaymentInformation.setColumns(10);
         
         final JTextField textField_1 = new JTextField();
         textField_1.setEditable(false);
-        textField_1.setBounds(143, 404, 182, 20);
+        textField_1.setBounds(143+x1-131, 404+y1+20, 182-30, 20);
         f.getContentPane().add(textField_1);
         textField_1.setColumns(10);
         
         
         final JTextField CustID = new JTextField();
-        CustID.setBounds(10, 37, 264, 20);
+        CustID.setBounds(10+x1, 37+y1, 60, 20);
         f.getContentPane().add(CustID);
         CustID.setColumns(10);
         
         final JTextField CustIdTitle = new JTextField();
-        CustIdTitle.setText("Input Customer ID");
+        CustIdTitle.setText("Input ID");
         CustIdTitle.setEditable(false);
-        CustIdTitle.setBounds(10, 11, 264, 20);
+        CustIdTitle.setBounds(10+x1, 11+y1, 60, 20);
         f.getContentPane().add(CustIdTitle);
         CustIdTitle.setColumns(10);
         
         final JTextField address = new JTextField();
-        address.setBounds(334, 404, 244, 20);
+        address.setBounds(334+x1-150, 404+y1+20, 244-80, 20);
         f.getContentPane().add(address);
         address.setColumns(10);
         
@@ -119,7 +129,7 @@ public class Playground extends JPanel {
         final JTextField txtAddress = new JTextField();
         txtAddress.setEditable(false);
         txtAddress.setText("Address");
-        txtAddress.setBounds(334, 383, 86, 20);
+        txtAddress.setBounds(334+x1-150, 383+y1+15, 86, 20);
         f.getContentPane().add(txtAddress);
         txtAddress.setColumns(10);
         
@@ -130,7 +140,7 @@ public class Playground extends JPanel {
         buildMenu(system, model);
         
         //START A TRANSACTION
-        JButton btnNewButton_1 = new JButton("Start a Transaction");
+        final JButton btnNewButton_1 = new JButton("Start a Transaction");
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -145,11 +155,11 @@ public class Playground extends JPanel {
                 //this is where the new commands go
             }
         });
-        btnNewButton_1.setBounds(284, 11, 390, 46);
+        btnNewButton_1.setBounds(284+x1-200, 11+y1, 390-115, 46);
         f.getContentPane().add(btnNewButton_1);
         
         //ADD TO ORDER
-        JButton btnAddToOrder = new JButton("Add to Order");
+        final JButton btnAddToOrder = new JButton("Add to Order");
         btnAddToOrder.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -160,11 +170,11 @@ public class Playground extends JPanel {
                 //this is where the new commands go
             }
         });
-        btnAddToOrder.setBounds(10, 369, 122, 23);
+        btnAddToOrder.setBounds(10+x1, 369+y1-5, 132, 23+5);
         f.getContentPane().add(btnAddToOrder);
         
         //REMOVE FROM ORDER
-        JButton btnRemoveFromOrder = new JButton("Remove from Order");
+        final JButton btnRemoveFromOrder = new JButton("Remove from Order");
         btnRemoveFromOrder.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -178,10 +188,10 @@ public class Playground extends JPanel {
                 //this is where the new commands go
             }
         });
-        btnRemoveFromOrder.setBounds(515, 370, 159, 23);
+        btnRemoveFromOrder.setBounds(515+x1-330, 370+y1-5, 159+15, 23+5);
         f.getContentPane().add(btnRemoveFromOrder);
         
-        final JCheckBox box = new JCheckBox("Delivery?");
+        final JCheckBox box = new JCheckBox("To Go?");
         
         box.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent arg0) {
@@ -197,11 +207,11 @@ public class Playground extends JPanel {
                 */
             }
         });
-        box.setBounds(588, 403, 86, 23);
+        box.setBounds(588+x1-300-5, 403+y1-8, 86-10, 23);
         f.getContentPane().add(box);
         
         //CONFIRM ORDER AND PAYMENT
-        JButton btnNewButton = new JButton("Confirm Order and Payment");
+        JButton btnNewButton = new JButton("Confirm and Pay");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -228,7 +238,7 @@ public class Playground extends JPanel {
                 
             }
         });
-        btnNewButton.setBounds(334, 430, 340, 23);
+        btnNewButton.setBounds(334+x1-150, 430+y1+20, 340-170, 23);
         f.getContentPane().add(btnNewButton);
         
         URI img = ClassLoader.getSystemClassLoader().getResource("./sample.png").toURI();
