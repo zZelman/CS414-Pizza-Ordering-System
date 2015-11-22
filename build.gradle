@@ -8,38 +8,38 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-task Playground(type: JavaExec) {
-    main = "main.Playground"
-    classpath = sourceSets.main.runtimeClasspath
-}
-
 task demo(type: JavaExec) {
-    main = "main.Runner"
+    main = "cs414.a5.mduelskeilh.main.Runner"
     classpath = sourceSets.main.runtimeClasspath
 }
 
 task Server(type: JavaExec) {
-    main = "main.PizzaSystem"
+    main = "cs414.a5.mduelskeilh.main.PizzaSystem"
     classpath = sourceSets.main.runtimeClasspath
 }
 
 task ManagerGUI(type: JavaExec) {
-    main = "main.ManagerGui"
+    main = "cs414.a5.mduelskeilh.gui.ManagerGui"
     classpath = sourceSets.main.runtimeClasspath
 }
 
 task KioskGUI(type: JavaExec) {
-    main = "main.KioskGUI"
+    main = "cs414.a5.mduelskeilh.gui.KioskGUI"
     classpath = sourceSets.main.runtimeClasspath
 }
 
 task ChefGUI(type: JavaExec) {
-    main = "main.ChefGUI"
+    main = "cs414.a5.mduelskeilh.gui.ChefGUI"
     classpath = sourceSets.main.runtimeClasspath
 }
 
 task DeliveryGUI(type: JavaExec) {
-    main = "main.DeliveryGUI"
+    main = "cs414.a5.mduelskeilh.gui.DeliveryGUI"
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task AndroidGUI(type: JavaExec) {
+    main = "cs414.a5.mduelskeilh.gui.AndroidGUI"
     classpath = sourceSets.main.runtimeClasspath
 }
 

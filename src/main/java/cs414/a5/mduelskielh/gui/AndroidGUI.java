@@ -1,4 +1,6 @@
-package main;
+package cs414.a5.mduelskeilh.gui;
+
+import cs414.a5.mduelskeilh.main.*;
 
 import java.util.*;
 import java.awt.*;
@@ -10,11 +12,11 @@ import java.io.*;
 import java.net.*;
 import java.rmi.*;
 
-public class Playground extends JPanel {
+public class AndroidGUI extends JPanel {
 
     private Image backgroundImage;
     
-    public Playground(URI fileName) throws IOException {
+    public AndroidGUI(URI fileName) throws IOException {
         backgroundImage = ImageIO.read(new File(fileName));
     }
     
@@ -59,7 +61,7 @@ public class Playground extends JPanel {
         // final JTextField address;
         // final JTextField txtAddress;
 
-	int framWidth = 410;
+	int framWidth = 409;
 	int framHight = 804;
         
         f.setBounds(100, 100, framWidth, framHight);
@@ -245,8 +247,8 @@ public class Playground extends JPanel {
         btnNewButton.setBounds(334+x1-150, 430+y1+20, 340-170, 23);
         f.getContentPane().add(btnNewButton);
         
-        URI img = ClassLoader.getSystemClassLoader().getResource("./sample.png").toURI();
-        f.getContentPane().add(new Playground(img));
+        URI img = ClassLoader.getSystemClassLoader().getResource("sample.png").toURI();
+        f.getContentPane().add(new AndroidGUI(img));
     }
     
     public static void buildOrder(SystemAccess system, DefaultListModel model2, JTextField textField_1) {

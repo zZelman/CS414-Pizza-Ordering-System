@@ -1,5 +1,6 @@
-package test;
-import main.*;
+package cs414.a5.mduelskeilh.test;
+
+import cs414.a5.mduelskeilh.main.*;
 
 import org.junit.Before;
 import org.junit.Test;

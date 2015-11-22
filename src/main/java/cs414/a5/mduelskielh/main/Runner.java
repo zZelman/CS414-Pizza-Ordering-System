@@ -1,4 +1,6 @@
-package main;
+package cs414.a5.mduelskeilh.main;
+
+import cs414.a5.mduelskeilh.gui.*;
 
 import java.awt.EventQueue;
 

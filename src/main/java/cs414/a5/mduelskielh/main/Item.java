@@ -1,4 +1,4 @@
-package main;
+package cs414.a5.mduelskeilh.main;
 
 public class Item {
     private String name;
