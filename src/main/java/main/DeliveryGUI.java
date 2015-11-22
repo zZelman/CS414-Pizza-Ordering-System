@@ -58,7 +58,7 @@ public class DeliveryGUI {
      */
     private void initialize() {
         frmOrdersToCook = new JFrame();
-        frmOrdersToCook.setTitle("Orders to Cook");
+        frmOrdersToCook.setTitle("Orders to Deliver");
         frmOrdersToCook.setBounds(100, 100, 700, 500);
         frmOrdersToCook.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frmOrdersToCook.getContentPane().setLayout(null);
