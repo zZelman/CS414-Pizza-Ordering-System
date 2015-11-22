@@ -301,6 +301,7 @@ public class ManagerGui {
                     String menName = menNames.get(0);
                     txtpnMenu.setText(menName);
                     textPane_1.setText(AtoS(system.getMenuItems(menName)));
+                    existingItems.setText(AtoS(system.getItemNames()));
                     // TODO : Make this set the menu
                 } catch (Exception q) {
 
