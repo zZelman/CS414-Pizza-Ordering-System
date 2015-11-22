@@ -70,7 +70,7 @@ public class DeliveryGUI {
         txtOrders = new JTextField();
         txtOrders.setEditable(false);
         txtOrders.setText("Deliveries");
-        txtOrders.setBounds(10, 11, 49, 20);
+        txtOrders.setBounds(10, 11, 60, 20);
         frmOrdersToCook.getContentPane().add(txtOrders);
         txtOrders.setColumns(10);
 
