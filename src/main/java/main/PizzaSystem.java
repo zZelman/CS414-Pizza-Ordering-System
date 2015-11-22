@@ -314,7 +314,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
         }
         
         int i = foundMenu.getFreePizzaNumber();
-        if (i == -1) {
+        if (i != -1) {
             return false;
         } else {
             foundMenu.setFreePizzaNumber(num);
@@ -431,6 +431,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
             
             this.incrementCustomer(customerID, 0);
             System.out.println("[SERVER] customerID value = " + this.customerIDs.get(customerID));
+	    System.out.println("[SERVER] freePizzaNumber  = " + this.menus.get(0).getFreePizzaNumber());
             if (this.customerIDs.get(customerID) > this.menus.get(0).getFreePizzaNumber()) {
                 Item freeItem = new Item("FREE! " + this.menus.get(0).getSpecial().getName(), "", 0);
                 this.currentSale.add(freeItem);
@@ -550,7 +551,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
     
         @return null if stack is empty
     */
-    public ArrayList<String> chefViewNextOrder() {
+    public ArrayList<String> viewNextOrder() {
         try {
             Sale s = cheifOrders.peek();
             return s.look();
@@ -565,7 +566,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
         @return true if order was completed
                 false if there were no orders to complete
     */
-    public boolean chefCompleteNextOrder() {
+    public boolean completeNextOrder() {
         try {
             // Sale s = cheifOrders.pop();
             Sale s = cheifOrders.take();

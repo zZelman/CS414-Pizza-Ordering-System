@@ -279,7 +279,8 @@ public class ManagerGui {
                 if (sanity(pNumber, 1)) {
                     try {
                         String pnumber = textField.getText();
-                        system.setMenuFreePizzaNumber(txtpnMenu.getText(), Integer.parseInt(pNumber));
+                        boolean tf = system.setMenuFreePizzaNumber(txtpnMenu.getText(), Integer.parseInt(pNumber));
+			System.out.println("[MANAGER] setFreePizzaNumber = " + tf);
                         btnFreePizzaNumber.setText("Number Set!");
                     } catch (Exception q) {
                     }

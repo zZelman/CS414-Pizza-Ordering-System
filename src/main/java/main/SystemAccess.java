@@ -36,6 +36,6 @@ public interface SystemAccess extends Remote {
     public boolean removeItemFromSale(String itemName) throws RemoteException;
     public String getSaleTotal() throws RemoteException;
     public boolean endSale(double payment) throws RemoteException;
-    public ArrayList<String> chefViewNextOrder() throws RemoteException;
-    public boolean chefCompleteNextOrder() throws RemoteException;
+    public ArrayList<String> viewNextOrder() throws RemoteException;
+    public boolean completeNextOrder() throws RemoteException;
 }
