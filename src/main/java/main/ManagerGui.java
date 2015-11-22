@@ -257,7 +257,8 @@ public class ManagerGui {
         });
         btnSetSpecial.setBounds(773, 707, 300, 40);
         frmManagerGui.getContentPane().add(btnSetSpecial);
-        
+
+        /*
         //FINISHED BUTTON
         JButton btnFinished = new JButton("Finished");
         btnFinished.addActionListener(new ActionListener() {
@@ -269,7 +270,8 @@ public class ManagerGui {
         });
         btnFinished.setBounds(773, 605, 300, 40);
         frmManagerGui.getContentPane().add(btnFinished);
-        
+        */
+
         //FREE PIZZA NUMBER
         final JButton btnFreePizzaNumber = new JButton("Free Pizza Number");
         
@@ -277,16 +279,16 @@ public class ManagerGui {
             public void actionPerformed(ActionEvent e) {
                 String pNumber = textField.getText();
                 //if (sanity(pNumber, 1)) {
-                    try {
+                try {
 
-                        String pnumber = textField.getText();
-                        boolean tf = system.setMenuFreePizzaNumber(txtpnMenu.getText(), Integer.parseInt(pNumber));
-			System.out.println("[MANAGER] setFreePizzaNumber = " + tf);
+                    String pnumber = textField.getText();
+                    boolean tf = system.setMenuFreePizzaNumber(txtpnMenu.getText(), Integer.parseInt(pNumber));
+                    System.out.println("[MANAGER] setFreePizzaNumber = " + tf);
 
-                        btnFreePizzaNumber.setText("Number Set!");
-                    } catch (Exception q) {
-                    }
-                    // TODO : have this be the button that pushes and saves the menus and stuffs
+                    btnFreePizzaNumber.setText("Number Set!");
+                } catch (Exception q) {
+                }
+                // TODO : have this be the button that pushes and saves the menus and stuffs
                 //}
             }
         });
@@ -308,7 +310,8 @@ public class ManagerGui {
                 }
             }
         });
-        btnNewButton_2.setBounds(399, 605, 300, 40);
+        btnNewButton_2.setBounds(773, 605, 300, 40);
+        //btnNewButton_2.setBounds(399, 605, 300, 40);
         frmManagerGui.getContentPane().add(btnNewButton_2);
 
 
