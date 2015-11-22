@@ -1,6 +1,17 @@
-package main;
+package main
 
 import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JEditorPane;
+import javax.swing.JTextPane;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
 
 public class ManagerGui {
 
