@@ -276,16 +276,18 @@ public class ManagerGui {
         btnFreePizzaNumber.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String pNumber = textField.getText();
-                if (sanity(pNumber, 1)) {
+                //if (sanity(pNumber, 1)) {
                     try {
+
                         String pnumber = textField.getText();
                         boolean tf = system.setMenuFreePizzaNumber(txtpnMenu.getText(), Integer.parseInt(pNumber));
 			System.out.println("[MANAGER] setFreePizzaNumber = " + tf);
+
                         btnFreePizzaNumber.setText("Number Set!");
                     } catch (Exception q) {
                     }
                     // TODO : have this be the button that pushes and saves the menus and stuffs
-                }
+                //}
             }
         });
         btnFreePizzaNumber.setBounds(28, 605, 300, 40);
