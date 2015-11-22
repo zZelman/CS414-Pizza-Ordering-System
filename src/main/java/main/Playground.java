@@ -34,36 +34,36 @@ public class Playground extends JPanel {
         f.setTitle("Android Kiosk");
         SystemAccess system = (SystemAccess) Naming.lookup("//localhost/server");
         
-        JTextField txtMenu;
-        JTextField txtYourOrder;
-        JTextField textField;
-        JTextField txtYourPaymentInformation;
-        DefaultListModel model;
-        DefaultListModel model2;
+        // final JTextField txtMenu;
+        // final JTextField txtYourOrder;
+        // final JTextField textField;
+        // final JTextField txtYourPaymentInformation;
+        // final DefaultListModel model;
+        // final DefaultListModel model2;
         
-        JList menu;
-        JList order;
-        JTextField textField_1;
-        JTextField CustID;
-        JTextField CustIdTitle;
-        JTextField address;
-        JTextField txtAddress;
+        // final JList menu;
+        // final JList order;
+        // final JTextField textField_1;
+        // final JTextField CustID;
+        // final JTextField CustIdTitle;
+        // final JTextField address;
+        // final JTextField txtAddress;
         
         f.setBounds(100, 100, 701, 504);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //f.getContentPane().setLayout(null);
         
-        model = new DefaultListModel();
-        menu = new JList(model);
+        final DefaultListModel model = new DefaultListModel();
+        final JList menu = new JList(model);
         menu.setBounds(10, 100, 277, 258);
         f.getContentPane().add(menu);
         
-        model2 = new DefaultListModel();
-        order = new JList(model2);
+        final DefaultListModel model2 = new DefaultListModel();
+        final JList order = new JList(model2);
         order.setBounds(334, 100, 340, 258);
         f.getContentPane().add(order);
         
-        txtMenu = new JTextField();
+        final JTextField txtMenu = new JTextField();
         txtMenu.setEditable(false);
         txtMenu.setFont(new Font("Tahoma", Font.PLAIN, 13));
         txtMenu.setText("Menu");
@@ -71,7 +71,7 @@ public class Playground extends JPanel {
         f.getContentPane().add(txtMenu);
         txtMenu.setColumns(10);
         
-        txtYourOrder = new JTextField();
+        final JTextField txtYourOrder = new JTextField();
         txtYourOrder.setEditable(false);
         txtYourOrder.setFont(new Font("Tahoma", Font.PLAIN, 13));
         txtYourOrder.setText("Your Order");
@@ -79,44 +79,44 @@ public class Playground extends JPanel {
         f.getContentPane().add(txtYourOrder);
         txtYourOrder.setColumns(10);
         
-        textField = new JTextField();
+        final JTextField textField = new JTextField();
         textField.setBounds(10, 431, 315, 20);
         f.getContentPane().add(textField);
         textField.setColumns(10);
         
-        txtYourPaymentInformation = new JTextField();
+        final JTextField txtYourPaymentInformation = new JTextField();
         txtYourPaymentInformation.setFont(new Font("Tahoma", Font.PLAIN, 13));
         txtYourPaymentInformation.setText("Payment Amount");
         txtYourPaymentInformation.setBounds(10, 403, 108, 20);
         f.getContentPane().add(txtYourPaymentInformation);
         txtYourPaymentInformation.setColumns(10);
         
-        textField_1 = new JTextField();
+        final JTextField textField_1 = new JTextField();
         textField_1.setEditable(false);
         textField_1.setBounds(143, 404, 182, 20);
         f.getContentPane().add(textField_1);
         textField_1.setColumns(10);
         
         
-        CustID = new JTextField();
+        final JTextField CustID = new JTextField();
         CustID.setBounds(10, 37, 264, 20);
         f.getContentPane().add(CustID);
         CustID.setColumns(10);
         
-        CustIdTitle = new JTextField();
+        final JTextField CustIdTitle = new JTextField();
         CustIdTitle.setText("Input Customer ID");
         CustIdTitle.setEditable(false);
         CustIdTitle.setBounds(10, 11, 264, 20);
         f.getContentPane().add(CustIdTitle);
         CustIdTitle.setColumns(10);
         
-        address = new JTextField();
+        final JTextField address = new JTextField();
         address.setBounds(334, 404, 244, 20);
         f.getContentPane().add(address);
         address.setColumns(10);
         
         
-        txtAddress = new JTextField();
+        final JTextField txtAddress = new JTextField();
         txtAddress.setEditable(false);
         txtAddress.setText("Address");
         txtAddress.setBounds(334, 383, 86, 20);
@@ -230,7 +230,7 @@ public class Playground extends JPanel {
         });
         btnNewButton.setBounds(334, 430, 340, 23);
         f.getContentPane().add(btnNewButton);
-
+        
         URI img = ClassLoader.getSystemClassLoader().getResource("./sample.png").toURI();
         f.getContentPane().add(new Playground(img));
     }
