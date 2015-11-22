@@ -357,6 +357,10 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
         this.currentSale.setIsDelvery(isDelvery);
     }
     
+    public boolean getSaleIsDelvery() {
+        return this.currentSale.getIsDelvery();
+    }
+    
     public void setSaleAddress(String address) {
         this.currentSale.setAddress(address);
     }
