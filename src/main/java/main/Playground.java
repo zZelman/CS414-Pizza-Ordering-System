@@ -58,8 +58,12 @@ public class Playground extends JPanel {
         // final JTextField CustIdTitle;
         // final JTextField address;
         // final JTextField txtAddress;
+
+	int framWidth = 445;
+	int framHight = 1028;
         
-        f.setBounds(100, 100, 450, 791);
+        f.setBounds(100, 100, framWidth, framHight);
+	f.setResizable(false);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //f.getContentPane().setLayout(null);
         
