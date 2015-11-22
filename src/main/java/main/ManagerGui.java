@@ -125,7 +125,7 @@ public class ManagerGui {
         textPane_1.setBounds(28, 56, 512, 503);
         frmManagerGui.getContentPane().add(textPane_1);
 
-        JTextPane txtpnMenu = new JTextPane();
+        final JTextPane txtpnMenu = new JTextPane();
         txtpnMenu.setEditable(false);
         txtpnMenu.setFont(new Font("Tahoma", Font.PLAIN, 13));
         txtpnMenu.setBounds(28, 25, 160, 20);
@@ -185,6 +185,7 @@ public class ManagerGui {
                     String[] s = textFieldValue.split(",");
                     try {
                         system.createMenu(s[0], s[1]);
+                        txtpnMenu.setText((s[0]));
                     } catch (Exception q) {}
                     //TODO: make work with new server
                     //this is where the new commands go
@@ -234,7 +235,7 @@ public class ManagerGui {
         frmManagerGui.getContentPane().add(btnNewButton);
 
         //SET SPECIAL
-        JButton btnSetSpecial = new JButton("Set Special");
+        final JButton btnSetSpecial = new JButton("Set Special");
         btnSetSpecial.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String textFieldValue = textField.getText();
@@ -242,11 +243,12 @@ public class ManagerGui {
                     String[] s = textFieldValue.split(",");
                     try {
                         if (system.setMenuSpecial(s[0], s[1])) {
-                            frmManagerGui.setVisible(false);
+                            //frmManagerGui.setVisible(false);
                             // new KioskGUI(system).frmKiosk.setVisible(true);
                             // new ChefGUI(system).frmOrdersToCook.setVisible(true);
                             //TODO: make work with new server
                             //this is where the new commands go
+                            btnSetSpecial.setText("Special Set!");
                         }
                     } catch (Exception q) {}
                 }
