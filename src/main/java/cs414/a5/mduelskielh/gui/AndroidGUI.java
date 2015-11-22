@@ -259,7 +259,7 @@ public class AndroidGUI extends JPanel {
         btnNewButton.setFont(new Font("Arial", Font.BOLD, 13));
         f.getContentPane().add(btnNewButton);
         
-        URI img = ClassLoader.getSystemClassLoader().getResource("sample.png").toURI();
+        URI img = ClassLoader.getSystemClassLoader().getResource("./gradleicon.png").toURI();
         f.getContentPane().add(new AndroidGUI(img));
     }
     
