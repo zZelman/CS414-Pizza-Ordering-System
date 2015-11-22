@@ -16,9 +16,15 @@ public interface SystemAccess extends Remote {
     public boolean addItemToMenu(String itemName, String menuName) throws RemoteException;
     public boolean setMenuSpecial(String itemName, String menuName) throws RemoteException;
     public String getMenuSpecial(String menuName) throws RemoteException;
+    
+    // NEW
+    public boolean setMenuFreePizzaNumber(String menuName, String num) throws RemoteException;
+    public String getMenuFreePizzaNumber(String menuName) throws RemoteException;
+    public void incrementCustomer(String id, int value) throws RemoteException;
+    
     public boolean removeItemFromMenu(String itemName, String menuName) throws RemoteException;
     public boolean isSaleActive() throws RemoteException;
-    public boolean beginSale() throws RemoteException;
+    public boolean beginSale(String customerID) throws RemoteException;
     public boolean addItemToSale(String itemName) throws RemoteException;
     public boolean removeItemFromSale(String itemName) throws RemoteException;
     public String getSaleTotal() throws RemoteException;

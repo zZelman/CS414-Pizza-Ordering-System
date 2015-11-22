@@ -143,7 +143,10 @@ public class KioskGUI {
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    system.beginSale();
+                    //----------------------------------------------------------------------------------------
+                    // TODO get customer ID and insert it into beginSale();
+                    system.beginSale("1");
+                    //----------------------------------------------------------------------------------------
                 } catch (Exception q) {}
                 //TODO: make work with new server
                 //this is where the new commands go

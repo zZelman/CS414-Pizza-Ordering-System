@@ -8,6 +8,7 @@ public class Menu {
     private String description;
     private ArrayList<Item> items;
     private Item special;
+    private int freePizzaNumber;
     
     public String getName() {
         return this.name;
@@ -23,6 +24,10 @@ public class Menu {
     
     public Item getSpecial() {
         return this.special;
+    }
+    
+    public int getFreePizzaNumber() {
+        return this.freePizzaNumber;
     }
     
     /**
@@ -41,6 +46,10 @@ public class Menu {
         return false;
     }
     
+    public void setFreePizzaNumber(int num) {
+        this.freePizzaNumber = num;
+    }
+    
     /**
         @note Set the special after the Menu has been created
     */
@@ -49,6 +58,7 @@ public class Menu {
         this.description = description;
         this.items = new ArrayList<Item>();
         this.special = null;
+	this.freePizzaNumber = -1;
     }
     
     /**

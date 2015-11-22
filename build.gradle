@@ -8,6 +8,11 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+task Playground(type: JavaExec) {
+    main = "Playground"
+    classpath = sourceSets.main.runtimeClasspath
+}
+
 task demo(type: JavaExec) {
     main = "main.Runner"
     classpath = sourceSets.main.runtimeClasspath

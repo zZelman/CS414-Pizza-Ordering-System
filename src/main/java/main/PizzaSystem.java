@@ -1,9 +1,6 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Stack;
-import java.util.EmptyStackException;
+import java.util.*;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
@@ -14,6 +11,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
 
     private ArrayList<Item> items;
     private ArrayList<Menu> menus;
+    private Map<String, Integer> customerIDs;
     private Stack<Sale> cheifOrders;
     private int currentSaleID;
     private Sale currentSale;
@@ -40,6 +38,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
         
         this.items = new ArrayList<Item>();
         this.menus = new ArrayList<Menu>();
+        this.customerIDs = new HashMap<String, Integer>();
         this.cheifOrders = new Stack<Sale>();
         this.currentSaleID = 0;
         this.currentSale = null;
@@ -292,6 +291,65 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
         }
     }
     
+    public boolean setMenuFreePizzaNumber(String menuName, String num) {
+        Menu foundMenu = null;
+        
+        Menu tmpMenu = new Menu(menuName, "");
+        
+        boolean menuFound = false;
+        for (Menu m : this.menus) {
+            if (m.equals(tmpMenu)) {
+                foundMenu = m;
+                menuFound = true;
+                break;
+            }
+        }
+        if (menuFound == false) {
+            return false;
+        }
+        
+        int i = foundMenu.getFreePizzaNumber();
+        if (i == -1) {
+            return false;
+        } else {
+            foundMenu.setFreePizzaNumber(Integer.parseInt(num));
+            return true;
+        }
+    }
+    
+    public String getMenuFreePizzaNumber(String menuName) {
+        Menu foundMenu = null;
+        
+        Menu tmpMenu = new Menu(menuName, "");
+        
+        boolean menuFound = false;
+        for (Menu m : this.menus) {
+            if (m.equals(tmpMenu)) {
+                foundMenu = m;
+                menuFound = true;
+                break;
+            }
+        }
+        if (menuFound == false) {
+            return null;
+        }
+        
+        int i = foundMenu.getFreePizzaNumber();
+        if (i == -1) {
+            return null;
+        } else {
+            return Integer.toString(i);
+        }
+    }
+    
+    public void incrementCustomer(String id, int value) {
+        if (this.customerIDs.containsKey(id)) {
+            this.customerIDs.put(id, this.customerIDs.get(id) + value);
+        } else {
+            this.customerIDs.put(id, 0);
+        }
+    }
+    
     /**
         Removes the given item (if it exists) to the given menu (if exists)
     
@@ -346,13 +404,20 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
         Begins the act of making a Sale
     
         @note only one sale can be active at any one time
-        @return true if a new sale can begin (currentSale == null)
-                false if there is a sale aready going (currentSale != null)
+        @return true if the customerID recieved a special
+                false if the customerID did not recieve a special
     */
-    public boolean beginSale() {
+    public boolean beginSale(String customerID) {
         if (!this.isSaleActive()) {
             this.currentSale = new Sale(this.currentSaleID);
-            return true;
+            
+            this.incrementCustomer(customerID, 0);
+            if (this.customerIDs.get(customerID) > this.menus.get(0).getFreePizzaNumber()) {
+                Item freeItem = new Item("FREE! " + this.menus.get(0).getSpecial().getName(), "", 0);
+                this.currentSale.add(freeItem);
+		this.customerID.put(customerID, 0);
+                return true;
+            }
         }
         return false;
     }
