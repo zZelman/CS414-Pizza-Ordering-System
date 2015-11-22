@@ -32,7 +32,7 @@ public class Playground extends JPanel {
     
     public static void init(JFrame f) throws Exception {
         f.setTitle("Android Kiosk");
-        SystemAccess system = (SystemAccess) Naming.lookup("//localhost/server");
+        final SystemAccess system = (SystemAccess) Naming.lookup("//localhost/server");
         
         // final JTextField txtMenu;
         // final JTextField txtYourOrder;
