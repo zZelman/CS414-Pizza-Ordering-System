@@ -291,7 +291,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
         }
     }
     
-    public boolean setMenuFreePizzaNumber(String menuName, String num) {
+    public boolean setMenuFreePizzaNumber(String menuName, int num) {
         Menu foundMenu = null;
         
         Menu tmpMenu = new Menu(menuName, "");
@@ -312,7 +312,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
         if (i == -1) {
             return false;
         } else {
-            foundMenu.setFreePizzaNumber(Integer.parseInt(num));
+            foundMenu.setFreePizzaNumber(num);
             return true;
         }
     }
@@ -349,6 +349,15 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
             this.customerIDs.put(id, 0);
         }
     }
+    
+    public void setSaleIsDelvery(boolean isDelvery) {
+        this.currentSale.setIsDelvery(isDelvery);
+    }
+    
+    public void setSaleAddress(String address) {
+        this.currentSale.setSaleAddress(address);
+    }
+    
     
     /**
         Removes the given item (if it exists) to the given menu (if exists)
@@ -415,7 +424,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
             if (this.customerIDs.get(customerID) > this.menus.get(0).getFreePizzaNumber()) {
                 Item freeItem = new Item("FREE! " + this.menus.get(0).getSpecial().getName(), "", 0);
                 this.currentSale.add(freeItem);
-		this.customerID.put(customerID, 0);
+                this.customerID.put(customerID, 0);
                 return true;
             }
         }

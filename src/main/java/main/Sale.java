@@ -7,15 +7,35 @@ public class Sale {
     private ArrayList<Item> items;
     private int id;
     private double payment;
+    private boolean isDelvery;
+    private String address;
     
     public ArrayList<Item> getItems() {
         return this.items;
+    }
+    
+    public void setIsDelvery(boolean isDelvery) {
+        this.isDelvery = isDelvery;
+    }
+    
+    public boolean getIsDelvery() {
+        return this.isDelvery;
+    }
+    
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    
+    public String getAddress() {
+        return this.address;
     }
     
     public Sale(int id) {
         this.items = new ArrayList<Item>();
         this.id = id;
         this.payment = 0;
+        this.isDelvery = false;
+        this.address = "";
     }
     
     public void add(Item item) {
@@ -62,8 +82,13 @@ public class Sale {
     */
     public ArrayList<String> look() {
         ArrayList<String> names = new ArrayList<String>();
+        if (this.isDelvery) {
+            names.add("Is a Delvery");
+            names.add("  Address is: " + this.address);
+        }
+        names.add("Items:");
         for (Item i : items) {
-            names.add(i.getName());
+            names.add("  " + i.getName());
         }
         return names;
     }
