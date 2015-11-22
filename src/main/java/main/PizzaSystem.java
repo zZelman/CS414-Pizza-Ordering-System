@@ -15,6 +15,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
     private Map<String, Integer> customerIDs;
     // private Stack<Sale> cheifOrders;
     private LinkedBlockingQueue<Sale> cheifOrders;
+    private LinkedBlockingQueue<Sale> deliveryOrders;
     private int currentSaleID;
     private Sale currentSale;
     private Ledger ledger;
@@ -43,6 +44,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
         this.customerIDs = new HashMap<String, Integer>();
         // this.cheifOrders = new Stack<Sale>();
         this.cheifOrders = new LinkedBlockingQueue<Sale>();
+        this.deliveryOrders = new LinkedBlockingQueue<Sale>();
         this.currentSaleID = 0;
         this.currentSale = null;
         this.ledger = new Ledger();
@@ -428,6 +430,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
             this.currentSale = new Sale(this.currentSaleID);
             
             this.incrementCustomer(customerID, 0);
+            System.out.println("[SERVER] customerID value = " + this.customerIDs.get(customerID));
             if (this.customerIDs.get(customerID) > this.menus.get(0).getFreePizzaNumber()) {
                 Item freeItem = new Item("FREE! " + this.menus.get(0).getSpecial().getName(), "", 0);
                 this.currentSale.add(freeItem);
@@ -547,7 +550,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
     
         @return null if stack is empty
     */
-    public ArrayList<String> viewNextOrder() {
+    public ArrayList<String> chefViewNextOrder() {
         try {
             Sale s = cheifOrders.peek();
             return s.look();
@@ -562,11 +565,15 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
         @return true if order was completed
                 false if there were no orders to complete
     */
-    public boolean completeNextOrder() {
+    public boolean chefCompleteNextOrder() {
         try {
             // Sale s = cheifOrders.pop();
             Sale s = cheifOrders.take();
-            this.ledger.add(s);
+            if (s.getIsDelvery()) {
+                this.deliveryOrders.put(s);
+            } else {
+                this.ledger.add(s);
+            }
             return true;
         } catch (Exception e) {
             return false;
