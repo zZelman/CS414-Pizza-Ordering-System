@@ -431,7 +431,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
             
             this.incrementCustomer(customerID, 0);
             System.out.println("[SERVER] customerID value = " + this.customerIDs.get(customerID));
-	    System.out.println("[SERVER] freePizzaNumber  = " + this.menus.get(0).getFreePizzaNumber());
+            System.out.println("[SERVER] freePizzaNumber  = " + this.menus.get(0).getFreePizzaNumber());
             if (this.customerIDs.get(customerID) > this.menus.get(0).getFreePizzaNumber()) {
                 Item freeItem = new Item("FREE! " + this.menus.get(0).getSpecial().getName(), "", 0);
                 this.currentSale.add(freeItem);
@@ -536,7 +536,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
             // this.cheifOrders.push(this.currentSale);
             try {
                 this.cheifOrders.put(this.currentSale);
-		this.incrementCustomer(customerID, (int) payment);
+                this.incrementCustomer(customerID, (int) payment);
             } catch (Exception e) {}
             this.currentSale = null;
             this.currentSaleID++;
@@ -576,6 +576,26 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
             } else {
                 this.ledger.add(s);
             }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
+    public ArrayList<String> deliveryViewNextOrder() {
+        try {
+            Sale s = deliveryOrders.peek();
+            return s.look();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public boolean deliveryCompleteNextOrder() {
+        try {
+            // Sale s = cheifOrders.pop();
+            Sale s = deliveryOrders.take();
+                this.ledger.add(s);
             return true;
         } catch (Exception e) {
             return false;

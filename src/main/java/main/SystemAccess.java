@@ -24,10 +24,8 @@ public interface SystemAccess extends Remote {
     public void setSaleIsDelvery(boolean isDelvery) throws RemoteException;
     public boolean getSaleIsDelvery() throws RemoteException;
     public void setSaleAddress(String address) throws RemoteException;
-    
-    // TODO
-    // public ArrayList<String> chefViewNextOrder() throws RemoteException;
-    // public boolean chefCompleteNextOrder() throws RemoteException;
+    public ArrayList<String> deliveryViewNextOrder() throws RemoteException;
+    public boolean deliveryCompleteNextOrder() throws RemoteException;
     
     public boolean removeItemFromMenu(String itemName, String menuName) throws RemoteException;
     public boolean isSaleActive() throws RemoteException;
