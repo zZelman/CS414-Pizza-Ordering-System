@@ -14,8 +14,8 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
     private ArrayList<Menu> menus;
     private Map<String, Integer> customerIDs;
     // private Stack<Sale> cheifOrders;
-    private LinkedBlockingQueue<Sale> cheifOrders;
-    private LinkedBlockingQueue<Sale> deliveryOrders;
+    private ConcurrentLinkedQueue<Sale> cheifOrders;
+    private ConcurrentLinkedQueue<Sale> deliveryOrders;
     private int currentSaleID;
     private Sale currentSale;
     private Ledger ledger;
@@ -43,8 +43,8 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
         this.menus = new ArrayList<Menu>();
         this.customerIDs = new HashMap<String, Integer>();
         // this.cheifOrders = new Stack<Sale>();
-        this.cheifOrders = new LinkedBlockingQueue<Sale>();
-        this.deliveryOrders = new LinkedBlockingQueue<Sale>();
+        this.cheifOrders = new ConcurrentLinkedQueue<Sale>();
+        this.deliveryOrders = new ConcurrentLinkedQueue<Sale>();
         this.currentSaleID = 0;
         this.currentSale = null;
         this.ledger = new Ledger();
@@ -535,7 +535,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
         if (pay) {
             // this.cheifOrders.push(this.currentSale);
             try {
-                this.cheifOrders.put(this.currentSale);
+                this.cheifOrders.add(this.currentSale);
                 this.incrementCustomer(customerID, (int) payment);
             } catch (Exception e) {}
             this.currentSale = null;
@@ -570,9 +570,13 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
     public boolean completeNextOrder() {
         try {
             // Sale s = cheifOrders.pop();
-            Sale s = cheifOrders.take();
+            Sale s = cheifOrders.poll();
+            if (s == null) {
+                return false;
+            }
+            
             if (s.getIsDelvery()) {
-                this.deliveryOrders.put(s);
+                this.deliveryOrders.add(s);
             } else {
                 this.ledger.add(s);
             }
@@ -590,12 +594,15 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
             return null;
         }
     }
-
+    
     public boolean deliveryCompleteNextOrder() {
         try {
             // Sale s = cheifOrders.pop();
-            Sale s = deliveryOrders.take();
-                this.ledger.add(s);
+            Sale s = deliveryOrders.poll();
+            if (s == null) {
+                return false;
+            }
+            this.ledger.add(s);
             return true;
         } catch (Exception e) {
             return false;
