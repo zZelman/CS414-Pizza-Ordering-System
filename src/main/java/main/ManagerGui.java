@@ -293,12 +293,18 @@ public class ManagerGui {
         btnFreePizzaNumber.setBounds(28, 605, 300, 40);
         frmManagerGui.getContentPane().add(btnFreePizzaNumber);
 
-        JButton btnNewButton_2 = new JButton("Select Menu");
+        JButton btnNewButton_2 = new JButton("Open Menu");
         btnNewButton_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                try {
+                    ArrayList<String> menNames = system.getMenuNames();
+                    String menName = menNames.get(0);
+                    txtpnMenu.setText(menName);
+                    textPane_1.setText(AtoS(system.getMenuItems(menName)));
+                    // TODO : Make this set the menu
+                } catch (Exception q) {
 
-                // TODO : Make this set the menu
-
+                }
             }
         });
         btnNewButton_2.setBounds(399, 605, 300, 40);
