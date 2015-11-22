@@ -32,7 +32,7 @@ public class PizzaSystem extends UnicastRemoteObject implements SystemAccess {
         
         PizzaSystem obj = new PizzaSystem();
         
-        Naming.rebind("//localhost/server", obj);
+        Naming.rebind("//129.82.45.209/server", obj);
         System.out.println("[SERVER] bound to RMI");
     }
     

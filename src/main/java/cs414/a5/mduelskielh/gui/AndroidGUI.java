@@ -34,7 +34,7 @@ public class AndroidGUI extends JPanel {
     
     public static void init(JFrame f) throws Exception {
         f.setTitle("Android Kiosk");
-        final SystemAccess system = (SystemAccess) Naming.lookup("//localhost/server");
+        final SystemAccess system = (SystemAccess) Naming.lookup("//129.82.45.209/server");
 
 	int x = 2000;
 	int y = 1700;

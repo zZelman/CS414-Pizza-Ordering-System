@@ -59,7 +59,7 @@ public class KioskGUI {
      Create the application.
      */
     public KioskGUI() throws Exception {
-        this.system = (SystemAccess) Naming.lookup("//localhost/server");
+        this.system = (SystemAccess) Naming.lookup("//129.82.45.209/server");
         initialize();
     }
 

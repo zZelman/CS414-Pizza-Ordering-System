@@ -45,7 +45,7 @@ public class ManagerGui {
         Create the application.
     */
     public ManagerGui() throws Exception {
-        this.system = (SystemAccess) Naming.lookup("//localhost/server");
+        this.system = (SystemAccess) Naming.lookup("//129.82.45.209/server");
         initialize();
     }
     
