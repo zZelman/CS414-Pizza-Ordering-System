@@ -80,7 +80,7 @@ public class DeliveryGUI {
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(" ");
                 try {
-                    system.completeNextOrder();
+                    system.deliveryCompleteNextOrder();
                     //TODO CHANGE TO COMPLETE NEXT DELIVERY
                 } catch (Exception q) {}
             }
@@ -93,7 +93,7 @@ public class DeliveryGUI {
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    textArea.setText(AtoS(system.viewNextOrder()));
+                    textArea.setText(AtoS(system.deliveryViewNextOrder()));
                     //TODO CHANGE TO VIEW NEXT DELIVERY
                 } catch (Exception q) {}
             }
