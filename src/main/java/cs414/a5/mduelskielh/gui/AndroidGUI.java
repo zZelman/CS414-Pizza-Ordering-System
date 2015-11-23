@@ -71,45 +71,45 @@ public class AndroidGUI extends JPanel {
         
         final DefaultListModel model = new DefaultListModel();
         final JList menu = new JList(model);
-        menu.setBounds(10+x1, 100+y1, 277-120, 258);
+        menu.setBounds(10+x1, 100+y1, 160, 258);
         f.getContentPane().add(menu);
         
         final DefaultListModel model2 = new DefaultListModel();
         final JList order = new JList(model2);
-        order.setBounds(334+x1-150, 100+y1, 340-170, 258);
+        order.setBounds(334+x1-150, 100+y1, 168, 258);
         f.getContentPane().add(order);
         
         final JTextField txtMenu = new JTextField();
         txtMenu.setEditable(false);
         txtMenu.setFont(new Font("Tahoma", Font.PLAIN, 13));
-        txtMenu.setText("Menu");
-        txtMenu.setBounds(10+x1, 69+y1, 42, 20);
+        txtMenu.setText(" Menu");
+        txtMenu.setBounds(10+x1, 69+y1, 45, 20);
         f.getContentPane().add(txtMenu);
         txtMenu.setColumns(10);
         
         final JTextField txtYourOrder = new JTextField();
         txtYourOrder.setEditable(false);
         txtYourOrder.setFont(new Font("Tahoma", Font.PLAIN, 13));
-        txtYourOrder.setText("Your Order");
+        txtYourOrder.setText("  Your Order");
         txtYourOrder.setBounds(334+x1-150, 69+y1, 86, 20);
         f.getContentPane().add(txtYourOrder);
         txtYourOrder.setColumns(10);
         
         final JTextField textField = new JTextField();
-        textField.setBounds(10+x1, 431+y1+20, 315-170, 20);
+        textField.setBounds(10+x1, 431+y1+20, 162, 20);
         f.getContentPane().add(textField);
         textField.setColumns(10);
         
         final JTextField txtYourPaymentInformation = new JTextField();
-        txtYourPaymentInformation.setFont(new Font("Tahoma", Font.PLAIN, 13));
-        txtYourPaymentInformation.setText("Payment Amount");
-        txtYourPaymentInformation.setBounds(10+x1, 403+y1+20-25, 120, 20);
+        txtYourPaymentInformation.setFont(new Font("Helvetica", Font.PLAIN, 13));
+        txtYourPaymentInformation.setText("       Payment Amount");
+        txtYourPaymentInformation.setBounds(11+x1, 403+y1+20-25, 160, 20);
         f.getContentPane().add(txtYourPaymentInformation);
         txtYourPaymentInformation.setColumns(10);
         
         final JTextField textField_1 = new JTextField();
         textField_1.setEditable(false);
-        textField_1.setBounds(143+x1-131, 404+y1+20, 182-30, 20);
+        textField_1.setBounds(11+x1, 404+y1+20, 160, 20);
         f.getContentPane().add(textField_1);
         textField_1.setColumns(10);
         
@@ -120,21 +120,21 @@ public class AndroidGUI extends JPanel {
         CustID.setColumns(10);
         
         final JTextField CustIdTitle = new JTextField();
-        CustIdTitle.setText("Input ID");
+        CustIdTitle.setText("  Input ID");
         CustIdTitle.setEditable(false);
         CustIdTitle.setBounds(10+x1, 11+y1, 60, 20);
         f.getContentPane().add(CustIdTitle);
         CustIdTitle.setColumns(10);
         
         final JTextField address = new JTextField();
-        address.setBounds(334+x1-150, 404+y1+20, 244-80, 20);
+        address.setBounds(334+x1-150, 404+y1+20, 244-74, 20);
         f.getContentPane().add(address);
         address.setColumns(10);
         
         
         final JTextField txtAddress = new JTextField();
         txtAddress.setEditable(false);
-        txtAddress.setText("Address");
+        txtAddress.setText("      Address");
         txtAddress.setBounds(334+x1-150, 383+y1+15, 86, 20);
         f.getContentPane().add(txtAddress);
         txtAddress.setColumns(10);
@@ -161,7 +161,10 @@ public class AndroidGUI extends JPanel {
                 //this is where the new commands go
             }
         });
-        btnNewButton_1.setBounds(284+x1-200, 11+y1, 390-115, 46);
+        btnNewButton_1.setBounds(284 + x1 - 200, 11 + y1, 390 - 115, 46);
+        btnNewButton_1.setBackground(Color.lightGray);
+        btnNewButton_1.setBorder(BorderFactory.createLineBorder(Color.darkGray, 3));
+        btnNewButton_1.setFont(new Font("Arial", Font.BOLD, 13));
         f.getContentPane().add(btnNewButton_1);
         
         //ADD TO ORDER
@@ -176,7 +179,10 @@ public class AndroidGUI extends JPanel {
                 //this is where the new commands go
             }
         });
-        btnAddToOrder.setBounds(10+x1, 369+y1-5, 132, 23+5);
+        btnAddToOrder.setBounds(10 + x1, 369 + y1 - 5, 160, 28);
+        btnAddToOrder.setBackground(Color.lightGray);
+        btnAddToOrder.setBorder(BorderFactory.createLineBorder(Color.darkGray, 3));
+        btnAddToOrder.setFont(new Font("Arial", Font.BOLD, 13));
         f.getContentPane().add(btnAddToOrder);
         
         //REMOVE FROM ORDER
@@ -194,7 +200,10 @@ public class AndroidGUI extends JPanel {
                 //this is where the new commands go
             }
         });
-        btnRemoveFromOrder.setBounds(515+x1-330, 370+y1-5, 159+15, 23+5);
+        btnRemoveFromOrder.setBounds(515 + x1 - 332, 370 + y1 - 5, 170, 28);
+        btnRemoveFromOrder.setBackground(Color.lightGray);
+        btnRemoveFromOrder.setBorder(BorderFactory.createLineBorder(Color.darkGray, 3));
+        btnRemoveFromOrder.setFont(new Font("Arial", Font.BOLD, 13));
         f.getContentPane().add(btnRemoveFromOrder);
         
         final JCheckBox box = new JCheckBox("To Go?");
@@ -213,7 +222,7 @@ public class AndroidGUI extends JPanel {
                 */
             }
         });
-        box.setBounds(588+x1-300-5, 403+y1-8, 86-10, 23);
+        box.setBounds(588+x1-300-5, 403+y1-8+3, 70, 20);
         f.getContentPane().add(box);
         
         //CONFIRM ORDER AND PAYMENT
@@ -244,7 +253,10 @@ public class AndroidGUI extends JPanel {
                 
             }
         });
-        btnNewButton.setBounds(334+x1-150, 430+y1+20, 340-170, 23);
+        btnNewButton.setBounds(334 + x1 - 150, 430 + y1 + 20, 340 - 170, 23);
+        btnNewButton.setBackground(Color.lightGray);
+        btnNewButton.setBorder(BorderFactory.createLineBorder(Color.darkGray, 3));
+        btnNewButton.setFont(new Font("Arial", Font.BOLD, 13));
         f.getContentPane().add(btnNewButton);
         
         URI img = ClassLoader.getSystemClassLoader().getResource("sample.png").toURI();
