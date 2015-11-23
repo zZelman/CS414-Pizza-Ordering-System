@@ -59,8 +59,8 @@ public class Playground extends JPanel {
         // final JTextField address;
         // final JTextField txtAddress;
 
-	int framWidth = 445;
-	int framHight = 1028;
+	int framWidth = 410;
+	int framHight = 804;
         
         f.setBounds(100, 100, framWidth, framHight);
 	f.setResizable(false);
