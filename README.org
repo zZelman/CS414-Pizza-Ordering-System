@@ -1,0 +1,8 @@
+#+TITLE: CS414-Pizza-Ordering-System
+#+AUTHOR: Kyle Avrett
+
+This is a project that I and a friend completed for CS414 in college. It is a order management application and app for a fictitious pizza business. The business has kiosks and an app as the terminal devices which are used by managers, waiters, customers, delivery guys and chefs. Managers can create or update the menu for each day of the week. Waiters or customers can place orders. Delivery guys can read complete orders and if they need to be delivered. Chefs can read the placed orders and complete them. 
+
+During this project we went through the whole software design process. We started with design documents and a simple application that took into account managers, waiters, customers, and chefs. Then after some time had to refactor the project to be able to support an app for the delivery guys.
+
+This project took the greater part of one semester to complete.
